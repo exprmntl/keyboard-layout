@@ -6,8 +6,8 @@ export const layouts = {
     summary: "The familiar layout used on most English-language keyboards.",
     heading: "Keyboard Layout Simulator",
     introduction: "Try QWERTY, Dvorak and Colemak. Just start typing.",
-    title: "Keyboard Layout Simulator | Dvorak, Colemak, QWERTY",
-    description: "Try QWERTY, Dvorak and Colemak online. Practice typing with an on-screen keyboard and optional key hints. No download or system settings to change.",
+    title: "Keyboard Layout Tester — QWERTY, Dvorak & Colemak",
+    description: "Try QWERTY, Dvorak and Colemak with a free online keyboard layout tester. Practice typing with key hints, without downloads or changing your keyboard settings.",
   },
   dvorak: {
     name: "Dvorak",
@@ -15,8 +15,8 @@ export const layouts = {
     summary: "An alternative layout that puts common English letters on the home row.",
     heading: "Dvorak Keyboard Simulator",
     introduction: "Try Dvorak on your keyboard. Just start typing.",
-    title: "Dvorak Keyboard Simulator | Keyboard Layout",
-    description: "Try the Dvorak keyboard layout online without changing your system settings. Practice typing with a Dvorak keyboard diagram and optional key hints.",
+    title: "Dvorak Keyboard Tester — Free Online Typing Practice",
+    description: "Try Dvorak online with a free keyboard simulator. Learn the layout and practice typing with on-screen key hints, without changing your keyboard settings.",
   },
   colemak: {
     name: "Colemak",
@@ -24,8 +24,8 @@ export const layouts = {
     summary: "An alternative layout that keeps many familiar QWERTY key positions.",
     heading: "Colemak Keyboard Simulator",
     introduction: "Try Colemak on your keyboard. Just start typing.",
-    title: "Colemak Keyboard Simulator | Keyboard Layout",
-    description: "Try the Colemak keyboard layout online without changing your system settings. Practice typing with a Colemak keyboard diagram and optional key hints.",
+    title: "Colemak Keyboard Tester — Free Online Typing Practice",
+    description: "Try Colemak online with a free keyboard simulator. Learn the layout and practice typing with on-screen key hints, without changing your keyboard settings.",
   },
 } as const;
 

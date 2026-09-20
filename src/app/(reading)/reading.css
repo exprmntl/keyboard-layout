@@ -1,9 +1,9 @@
 .reading-shell {
-  --reading-text: #30343b;
-  --reading-muted: #646b75;
-  --reading-border: #e1e4e8;
-  --reading-soft: #f5f6f7;
-  --reading-key: #e6ebef;
+  --reading-text: var(--ink);
+  --reading-muted: var(--muted);
+  --reading-border: var(--line);
+  --reading-soft: var(--surface);
+  --reading-key: var(--accent-soft);
   max-width: 47rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -17,7 +17,7 @@
 }
 .reading-nav { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--reading-border); font-size: .875rem; }
 .reading-brand { font-weight: 600; }
-.reading-nav nav { display: flex; gap: 1.5rem; color: var(--reading-muted); }
+.reading-nav nav { display: flex; align-items: center; gap: 1.5rem; color: var(--reading-muted); }
 .reading-nav a:hover { text-decoration: underline; }
 .reading-skip { position: absolute; left: -9999px; }
 .reading-skip:focus { left: 1rem; top: .25rem; z-index: 10; padding: .5rem; background: var(--reading-soft); }
@@ -53,7 +53,7 @@
 .diagram-row-1 { padding-left: 2%; padding-right: 6%; }
 .diagram-row-2 { padding-left: 5%; padding-right: 12%; }
 .diagram-row span { display: flex; flex: 1 1 0; min-width: 0; align-items: center; justify-content: center; padding: .55rem 0; font-family: ui-monospace, monospace; font-size: clamp(.68rem, 2.3vw, 1rem); border: 1px solid var(--reading-border); border-radius: .25rem; background: var(--reading-soft); line-height: 1.2; }
-.diagram-row .home-key { background: var(--reading-key); border-color: #bcc6cf; }
+.diagram-row .home-key { background: var(--reading-key); border-color: var(--accent); }
 .layout-diagram figcaption { color: var(--reading-muted); font-size: .75rem; line-height: 1.55; margin-top: .875rem; }
 .guide-table-scroll { overflow-x: auto; margin: 1.5rem 0; }
 .guide-prose table { border-collapse: collapse; width: 100%; min-width: 37rem; font-size: .875rem; line-height: 1.6; }
@@ -78,15 +78,10 @@
 .reading-footer a:hover, .reading-footer p a { text-decoration: underline; }
 @media (max-width: 480px) {
   .reading-shell { padding: 0 1.125rem; }
-  .reading-nav { padding: 1.5rem 0; gap: .75rem; font-size: .8rem; }
-  .reading-nav nav { gap: 1rem; }
+  .reading-nav { padding: 1rem 0; gap: .75rem; font-size: .75rem; flex-wrap: wrap; }
+  .reading-nav nav { gap: .75rem; }
   .guide-article, .guides-index { padding-top: 2.5rem; }
   .guide-prose { font-size: 1rem; }
   .layout-diagram { padding: .75rem; }
   .history-timeline li { grid-template-columns: 1fr; gap: .2rem; }
-}
-@media (prefers-color-scheme: dark) {
-  .reading-shell { --reading-text: #dddfe3; --reading-muted: #a0a6b0; --reading-border: #30353c; --reading-soft: #16191d; --reading-key: #2a343f; }
-  .diagram-row .home-key { border-color: #4b5d70; }
-  .guide-prose a { text-decoration-color: #69727f; }
 }

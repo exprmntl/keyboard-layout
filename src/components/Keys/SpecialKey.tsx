@@ -26,13 +26,9 @@ const SpecialKey = ({
     <div
       className={`keyboard-special-key keyboard-special-key--${
         size || "standard"
-      } ${Icon ? "keyboard-special-key--has-icon" : ""} shrink-0 grow-0 ${
-        highlight
-          ? "bg-slate-600 dark:bg-gray-500 text-white dark:text-black border-0"
-          : hint
-          ? "bg-yellow-500 dark:bg-yellow-600 dark:text-black dark:border-0"
-          : "border-2 border-black dark:border-gray-500"
-      }`}
+      } ${Icon ? "keyboard-special-key--has-icon" : ""} keycap shrink-0 grow-0`}
+      data-highlight={highlight}
+      data-hint={hint}
     >
       <div
         className={`keyboard-special-key-icon h-1/2 flex items-start ${

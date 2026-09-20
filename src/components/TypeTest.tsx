@@ -24,11 +24,7 @@ const Letter = forwardRef<HTMLSpanElement, LetterProps>(function Letter(
   return (
     <span
       ref={ref}
-      className={`border-l-2 ${
-        current
-          ? "border-black animate-cursor dark:animate-cursor-dark"
-          : "border-transparent"
-      } ${incorrect ? "bg-red-100 dark:bg-red-950" : ""}`}
+      className={`typing-letter ${current ? "typing-cursor" : ""} ${incorrect ? "typing-mistake" : ""}`}
     >
       {children}
     </span>
@@ -65,7 +61,7 @@ const TypeTest = ({
   }, [finishedText, correctText, incorrectText, restText, handleNewLine]);
 
   return (
-    <p ref={paragraph} className="relative h-[2lh] break-words text-lg leading-relaxed tracking-tighter overflow-hidden select-none dark:text-gray-300 min-[500px]:text-xl md:text-2xl">
+    <p ref={paragraph} className="relative h-[2lh] break-words text-lg leading-relaxed overflow-hidden select-none min-[500px]:text-xl md:text-2xl">
       <span>
         {finishedText.split("").map((letter, index) => (
           <Letter key={`${letter}-${index}`}>{letter}</Letter>
@@ -85,7 +81,7 @@ const TypeTest = ({
           </Letter>
         ))}
       </span>
-      <span className="text-gray-500">
+      <span className="typing-remaining">
         {restText.slice(0, 300).split("").map((letter, index) => (
           <Letter
             current={index === 0}

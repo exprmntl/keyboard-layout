@@ -20,11 +20,7 @@ const KeyboardOption = ({
       href={href}
       scroll={false}
       aria-current={highlight ? "page" : undefined}
-      className={`layout-option text-left min-w-0 max-w-64 rounded-lg sm:rounded-xl p-2 sm:p-4 border-2 cursor-pointer transition flex-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-500 ${
-        highlight
-          ? "border-black dark:border-gray-400 text-black dark:text-gray-300"
-          : "border-gray-400 dark:border-gray-500 text-gray-500 hover:shadow-lg ease-in-out duration-300"
-      }`}
+      className="layout-option text-left min-w-0 p-3 sm:p-4 flex-1"
       onClick={(event) => {
         // Modified clicks keep normal link behavior (new tab/window).
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
