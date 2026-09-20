@@ -13,6 +13,7 @@ import dvorakKeyMap from "@/keyboards/dvorakKeyMap";
 import colemakKeyMap from "@/keyboards/colemakKeyMap";
 import { words } from "@/words";
 import LightBulb from "@/components/Icons/LightBulb";
+import ThemeToggle from "@/components/ThemeToggle";
 import { track } from "@/lib/analytics";
 import { layouts, layoutForPathname, type LayoutName } from "@/lib/layouts";
 import { createPracticeId, createPracticeTracker, isPracticeInput } from "@/lib/practice-analytics";
@@ -204,11 +205,14 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <main ref={mainRef} className="tester-main w-full min-h-[100svh] max-w-6xl mx-auto px-4 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8 md:px-12 md:pt-10 md:pb-12 flex flex-col">
-        <header className="tester-header mb-5 sm:mb-6">
-          <h1 className="text-base font-medium tracking-tight text-gray-900 sm:text-lg dark:text-gray-200">
-            {selectedLayout.heading}
-          </h1>
-          <p id="typing-instructions" className="mt-1 text-xs leading-relaxed text-gray-500 sm:text-sm dark:text-gray-400">
+        <nav className="site-nav" aria-label="Main navigation">
+          <Link href="/" className="site-brand"><span className="brand-key" aria-hidden="true">k.</span>Keyboard Layout</Link>
+          <div className="site-nav-actions"><Link href="/learn">Guides <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
+        </nav>
+        <header className="tester-header">
+          <p className="tester-eyebrow">{selectedLayout.heading}</p>
+          <h1>{keyboardLayout === "qwerty" ? "Try a different way to type" : `Get a feel for ${selectedLayout.name}`}<span className="accent-period">.</span></h1>
+          <p id="typing-instructions">
             <span className="physical-typing-instructions">{selectedLayout.introduction}</span>
             <span className="touch-typing-instructions">Tap the keys below to try {selectedLayout.name}.</span>
           </p>
@@ -247,7 +251,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             <div className="text-right shrink-0">
               <button
                 type="button"
-                className="flex min-h-11 min-w-11 items-center justify-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-500"
+                className="hint-toggle"
                 onClick={() => {
                   const enabled = !showHints;
                   setShowHints(enabled);
@@ -259,10 +263,12 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
                 aria-pressed={showHints}
               >
                 <LightBulb lit={showHints} />
+                <span>Hints</span>
               </button>
             </div>
           </div>
 
+          <div className="practice-label"><span>Typing practice</span><span className="physical-typing-instructions">Click here & start typing</span></div>
           <div className="practice-text mb-4 ph-no-capture" data-private-typing>
             <TypeTest
               finishedText={typeTestState.finishedText}
@@ -299,9 +305,9 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
 
         {children}
 
-        <div className="mt-8 text-sm sm:text-base text-gray-400 dark:text-gray-600 text-right grow flex flex-col justify-end">
+        <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <Link href="/learn" className="underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-400">Guides</Link>
+            <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you? <span aria-hidden="true">↗</span></Link>
             <p>
               A product by{" "}
               <a

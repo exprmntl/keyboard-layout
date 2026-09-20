@@ -12,6 +12,8 @@ Try QWERTY, Dvorak, and Colemak in your browser with typing practice and an on-s
 
 Selecting a layout updates the URL, so you can share a link that opens the intended layout. The simulator changes typing in its practice area; it does not change your computer's input settings.
 
+The site opens in a warm light theme. The Light/Dark button in the header remembers your choice on this browser and applies it to the simulator and guides. It still works for the current visit if browser storage is unavailable.
+
 On a phone or tablet, tap the keyboard docked at the bottom of the screen to explore each layout. Shift, Backspace, Space, and optional key hints work with touch; 123 switches to numbers and symbols, and ABC returns to letters. Space or the return arrow advances a completed word. A connected physical keyboard also works.
 
 ## Guides
