@@ -220,7 +220,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
         <div
           ref={appRef}
           className="outline-none flex flex-col"
-          aria-label="Keyboard layout typing tester"
+          aria-label="Keyboard layout simulator"
           aria-describedby="typing-instructions"
           tabIndex={0}
           onKeyDown={handleKeyDown}
