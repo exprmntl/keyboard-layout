@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem('keyboard-layout-theme')==='dark'){document.documentElement.classList.add('dark')}}catch{}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(()=>{let theme;try{theme=localStorage.getItem('keyboard-layout-theme')}catch{}const dark=theme==='dark'||(theme!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark)})()` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
