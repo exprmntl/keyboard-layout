@@ -15,7 +15,7 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 
 All events carry `analytics_site: keyboard-layout-tester`, `analytics_version: 1`, and `is_internal`. The SDK supplies session, device, referrer and campaign context. Product IDs remain stable if copy changes. Affiliate clicks measure outbound interest; only the merchant can confirm orders and commission.
 
-The layout detector keeps its six key samples only in component memory and blocks the entire check area from session replay. Its events contain only the method and resulting family, never raw keys, characters, or sample arrays. Owner/QA exclusions use the existing persistent internal marker and preview-host policy. Production reporting must filter `is_internal != true`; production delivery will need verification after release.
+The layout detector keeps the latest character per physical key only in component memory and blocks the entire check area from session replay. Six distinct positions complete a check in any order; extra keys only fill the diagram, and repeat presses do not advance progress. Clicking a diagram key selects a position without recording a sample. Completion is emitted at most once per run. Its events contain only the method and resulting family, never raw keys, characters, or sample arrays. Owner/QA exclusions use the existing persistent internal marker and preview-host policy. Production reporting must filter `is_internal != true`; production delivery will need verification after release.
 
 ## Practice definition
 

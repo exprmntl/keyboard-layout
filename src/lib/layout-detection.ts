@@ -30,27 +30,44 @@ type InputCheck =
   | { kind: "ignored" }
   | { kind: "notice"; message: string };
 
-export function checkDetectionInput(input: DetectionInput, step: number): InputCheck {
-  if (step < 0 || step >= detectionCodes.length || input.repeat) return { kind: "ignored" };
+export function checkDetectionInput(input: DetectionInput): InputCheck {
+  if (input.repeat) return { kind: "ignored" };
   if (input.ctrlKey || input.metaKey) return { kind: "ignored" };
-  if (input.shiftKey || input.altKey) return { kind: "notice", message: "Release Shift and Alt/Option, then press the highlighted key." };
   if (input.isComposing || ["Dead", "Process", "Unidentified"].includes(input.key)) {
     return { kind: "notice", message: "This input method cannot be checked reliably here. Check your layout in your system settings below." };
   }
+  // Navigation keys keep their normal behavior, including Shift+Tab and Escape.
+  if (input.key.length !== 1) return { kind: "ignored" };
+  if (input.shiftKey || input.altKey) return { kind: "notice", message: "Release Shift and Alt/Option, then press the highlighted key." };
   if (!input.code || input.code === "Unidentified") {
     return { kind: "notice", message: "Your browser is not reporting physical key positions. Use a physical keyboard, or check your system settings below." };
   }
-  // Navigation keys keep their normal behavior, including Tab and Escape.
-  if (input.key.length !== 1) return { kind: "ignored" };
-  if (input.code !== detectionCodes[step]) {
-    return { kind: "notice", message: "Press the highlighted position on your physical keyboard, regardless of the letter printed on it." };
-  }
-  return { kind: "accepted", sample: { code: input.code, key: input.key.toLowerCase() } };
+  // Record the main typing area, including extra keys, without counting navigation
+  // or numpad keys as evidence for the six required physical positions.
+  if (!/^(Key[A-Z]|Digit[0-9]|Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|IntlBackslash|IntlRo|IntlYen|Semicolon|Quote|Comma|Period|Slash|Space)$/.test(input.code)) return { kind: "ignored" };
+  return { kind: "accepted", sample: { code: input.code, key: input.key } };
+}
+
+export function recordDetectionSample(samples: readonly DetectionSample[], sample: DetectionSample) {
+  const previous = samples.find(item => item.code === sample.code);
+  return {
+    samples: [...samples.filter(item => item.code !== sample.code), sample],
+    changed: !!previous && previous.key.toLowerCase() !== sample.key.toLowerCase(),
+  };
+}
+
+export function detectionProgress(samples: readonly DetectionSample[]) {
+  const observed = new Set(samples.map(sample => sample.code));
+  const remaining = detectionCodes.filter(code => !observed.has(code));
+  return { count: detectionCodes.length - remaining.length, nextCode: remaining[0], complete: remaining.length === 0 };
 }
 
 export function identifyLayout(samples: readonly DetectionSample[]) {
-  if (samples.length !== detectionCodes.length) return undefined;
-  return detectionFamilies.find(family => samples.every((sample, index) =>
-    sample.code === detectionCodes[index] && sample.key.toLowerCase() === family.keys[index]
-  ));
+  const observed = new Map<string, string>();
+  for (const { code, key } of samples) {
+    const normalized = key.toLowerCase();
+    if (observed.has(code) && observed.get(code) !== normalized) return undefined;
+    observed.set(code, normalized);
+  }
+  return detectionFamilies.find(family => detectionCodes.every((code, index) => observed.get(code) === family.keys[index]));
 }

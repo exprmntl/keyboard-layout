@@ -24,6 +24,7 @@ export default function KeyboardLayoutDetectorPage() {
         <section>
           <h2>Which layouts can this identify?</h2>
           <p>This check recognizes the <strong>{detectionFamilies.map(family => family.name).join(", ")}</strong> families. It reads the characters produced at six physical key positions. Regional variants often share these positions, so the result is a family match, not an exact country, language, or keyboard model.</p>
+          <p>Press those positions in any order. Other keys fill the diagram without advancing the six-position check. Clicking a key only chooses which position to try; the check uses actual key presses. Use one input layout throughout the check, without holding Shift or Alt/Option.</p>
           <p>AZERTY is common in France and Belgium; QWERTZ is common in Germany and parts of Central Europe. Their regional symbol arrangements differ. US, UK, and many other layouts use QWERTY letters. Dvorak and Colemak also have variants that this short check cannot distinguish.</p>
         </section>
         <section>
