@@ -1,4 +1,5 @@
 import type { LayoutName } from "./layouts";
+import type { DetectionFamily } from "./layout-detection";
 export type { LayoutName } from "./layouts";
 
 export type PracticeProperties = {
@@ -9,6 +10,8 @@ export type PracticeProperties = {
 };
 
 export type AnalyticsEvents = {
+  layout_detection_started: { method: "guided_keys" };
+  layout_detection_completed: { method: "guided_keys"; result: DetectionFamily | "unknown" };
   layout_selected: { layout: LayoutName; previous_layout: LayoutName };
   practice_started: PracticeProperties;
   practice_engaged: PracticeProperties;

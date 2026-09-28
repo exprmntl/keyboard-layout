@@ -22,6 +22,7 @@ export default function GuidesPage() {
         ))}
       </div>
       <p className="guide-index-note">Ready to try one? <Link href="/">Open the simulator</Link> and start typing.</p>
+      <p className="guide-index-note">Not sure which layout is active? <Link href="/keyboard-layout-detector">Check your keyboard layout</Link>.</p>
     </div>
   );
 }
