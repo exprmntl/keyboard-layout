@@ -5,7 +5,7 @@ import type { Source } from "@/content/sources";
 import { SITE_URL } from "@/lib/site";
 
 export type ArticleSection = { id: string; title: string; body: ReactNode };
-export type ArticleContent = { introduction: ReactNode; sections: ArticleSection[] };
+export type ArticleContent = { introduction: ReactNode; sections: ArticleSection[]; related?: ArticleId[] };
 
 export function Cite({ n, source }: { n: number; source: Source }) {
   return <sup className="citation"><a href={source.url} aria-label={`Source ${n}: ${source.title}`} title={source.title}>[{n}]</a></sup>;
@@ -47,7 +47,7 @@ export default function Article({ id, content }: { id: ArticleId; content: Artic
       </div>
       <aside className="guide-related" aria-label="More keyboard layout guides">
         <h2>Keep exploring</h2>
-        {Object.entries(articles).filter(([key]) => key !== id).map(([key, related]) => <Link key={key} href={related.path}>{related.title}<span aria-hidden="true"> →</span></Link>)}
+        {(content.related ?? (Object.keys(articles) as ArticleId[]).filter(key => key !== id).slice(0, 3)).map(key => <Link key={key} href={articles[key].path}>{articles[key].title}<span aria-hidden="true"> →</span></Link>)}
       </aside>
     </article>
   );

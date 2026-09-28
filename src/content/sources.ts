@@ -1,6 +1,10 @@
 export type Source = { title: string; url: string; note: string };
 
 export const sources = {
+  frenchLayout: { title: "Microsoft: French (Legacy, AZERTY) keyboard", url: "https://learn.microsoft.com/en-us/globalization/keyboards/kbdfr", note: "Windows layout 0000040C, including unshifted, Shift and AltGr layers." },
+  germanLayout: { title: "Microsoft: German keyboard", url: "https://learn.microsoft.com/en-us/globalization/keyboards/kbdgr", note: "Windows layout 00000407; not the Swiss German layout." },
+  ukLayout: { title: "Microsoft: United Kingdom keyboard", url: "https://learn.microsoft.com/en-us/globalization/keyboards/kbduk", note: "Windows layout 00000809; Apple British input sources differ." },
+  usInternational: { title: "Microsoft: United States-International keyboard", url: "https://learn.microsoft.com/en-us/globalization/keyboards/kbdusx", note: "Windows layout 00020409, including dead keys and right-Alt combinations." },
   patent: {
     title: "August Dvorak and William L. Dealey, Typewriter keyboard (US 2,040,248)",
     url: "https://patents.google.com/patent/US2040248A/en",
