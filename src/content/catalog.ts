@@ -27,6 +27,36 @@ export const articles = {
     category: "History",
     summary: "The inventions, competing ideas, and everyday habits behind the keys we use today.",
   },
+  "french-keyboard-layout": {
+    path: "/learn/french-keyboard-layout", title: "French AZERTY Keyboard Layout: Keys, Accents and Setup",
+    description: "See the traditional French AZERTY layout, find @, €, accents and numbers, and select the right French keyboard input source on your computer.",
+    category: "Layout reference", summary: "Find French accents and symbols, understand the number row, and check the exact AZERTY variant you use.",
+  },
+  "german-keyboard-layout": {
+    path: "/learn/german-keyboard-layout", title: "German QWERTZ Keyboard Layout: Symbols, Umlauts and Setup",
+    description: "A German QWERTZ keyboard diagram with umlauts, ß, @, €, brackets and AltGr shortcuts, plus setup and swapped Y/Z troubleshooting.",
+    category: "Layout reference", summary: "Locate umlauts, brackets and AltGr symbols, and understand why Y and Z exchange places.",
+  },
+  "us-vs-uk-keyboard": {
+    path: "/learn/us-vs-uk-keyboard", title: "US vs UK Keyboard Layouts: Symbols, Key Shapes and Switching",
+    description: "Compare US and UK keyboard diagrams, @ and quote positions, £, #, Enter and Shift. Check your active input layout and fix swapped symbols.",
+    category: "Comparison", summary: "Compare the punctuation and physical keys that distinguish two otherwise familiar QWERTY layouts.",
+  },
+  "us-international-keyboard": {
+    path: "/learn/us-international-keyboard", title: "US International Keyboard: Accents, Dead Keys and Setup",
+    description: "Type é, ñ, ü and ç with the Windows US International keyboard. Learn dead-key sequences, literal apostrophes, right-Alt shortcuts and how to switch back.",
+    category: "Typing guide", summary: "Add accents to US QWERTY and understand why an apostrophe sometimes waits for the next key.",
+  },
+  "keyboard-typing-wrong-letters": {
+    path: "/learn/keyboard-typing-wrong-letters", title: "Keyboard Typing the Wrong Letters or Symbols? Start Here",
+    description: "Troubleshoot swapped letters, wrong symbols, delayed apostrophes and unexpected numbers. Check input layouts, modifiers, remapping and hardware in order.",
+    category: "Troubleshooting", summary: "Use the pattern of wrong characters to check your input layout, app settings, modifiers and keyboard.",
+  },
+  "keyboard-layout-charts": {
+    path: "/learn/keyboard-layout-charts", title: "Printable Keyboard Layout Charts: QWERTY, Dvorak and Colemak",
+    description: "Download a free three-page PDF of US QWERTY, standard Dvorak and Colemak keyboard charts, with Shift symbols, number rows and home-row references.",
+    category: "Printable reference", summary: "Download three clear desk references with character positions, Shift symbols and home-row finger anchors.",
+  },
 } as const;
 
 export type ArticleId = keyof typeof articles;
@@ -34,5 +64,5 @@ export type ArticleId = keyof typeof articles;
 export const guidesIndex = {
   path: "/learn",
   title: "Keyboard Layout Guides",
-  description: "Practical guides to learning Dvorak and Colemak, an honest layout comparison, and a sourced history of keyboard layouts.",
+  description: "Keyboard layout diagrams, international symbols, troubleshooting and printable charts, alongside Dvorak and Colemak learning guides and keyboard history.",
 };

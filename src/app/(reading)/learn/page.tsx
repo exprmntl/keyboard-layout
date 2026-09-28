@@ -10,7 +10,7 @@ export default function GuidesPage() {
       <header className="guide-heading">
         <p className="guide-eyebrow">Learn &amp; explore</p>
         <h1>Keyboard Layout Guides</h1>
-        <p className="guide-deck">Learn a new layout, compare your options, or find out how the keys got here.</p>
+        <p className="guide-deck">Find your layout, learn its symbols, fix unexpected input, or start practicing something new.</p>
       </header>
       <div className="guide-list">
         {Object.entries(articles).map(([id, article]) => (

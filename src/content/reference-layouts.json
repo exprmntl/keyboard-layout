@@ -1,0 +1,1235 @@
+{
+  "us": {
+    "name": "US QWERTY",
+    "variant": "Standard US, ANSI character positions",
+    "anchors": "F and J",
+    "rows": [
+      [
+        {
+          "key": "`",
+          "shift": "~"
+        },
+        {
+          "key": "1",
+          "shift": "!"
+        },
+        {
+          "key": "2",
+          "shift": "@"
+        },
+        {
+          "key": "3",
+          "shift": "#"
+        },
+        {
+          "key": "4",
+          "shift": "$"
+        },
+        {
+          "key": "5",
+          "shift": "%"
+        },
+        {
+          "key": "6",
+          "shift": "^"
+        },
+        {
+          "key": "7",
+          "shift": "&"
+        },
+        {
+          "key": "8",
+          "shift": "*"
+        },
+        {
+          "key": "9",
+          "shift": "("
+        },
+        {
+          "key": "0",
+          "shift": ")"
+        },
+        {
+          "key": "-",
+          "shift": "_"
+        },
+        {
+          "key": "=",
+          "shift": "+"
+        }
+      ],
+      [
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "[",
+          "shift": "{"
+        },
+        {
+          "key": "]",
+          "shift": "}"
+        },
+        {
+          "key": "\\",
+          "shift": "|"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": ";",
+          "shift": ":"
+        },
+        {
+          "key": "'",
+          "shift": "\""
+        }
+      ],
+      [
+        {
+          "key": "z",
+          "shift": "Z"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": ",",
+          "shift": "<"
+        },
+        {
+          "key": ".",
+          "shift": ">"
+        },
+        {
+          "key": "/",
+          "shift": "?"
+        }
+      ]
+    ]
+  },
+  "uk": {
+    "name": "UK QWERTY",
+    "variant": "Windows United Kingdom, ISO character positions",
+    "anchors": "F and J",
+    "rows": [
+      [
+        {
+          "key": "`",
+          "shift": "¬"
+        },
+        {
+          "key": "1",
+          "shift": "!"
+        },
+        {
+          "key": "2",
+          "shift": "\""
+        },
+        {
+          "key": "3",
+          "shift": "£"
+        },
+        {
+          "key": "4",
+          "shift": "$"
+        },
+        {
+          "key": "5",
+          "shift": "%"
+        },
+        {
+          "key": "6",
+          "shift": "^"
+        },
+        {
+          "key": "7",
+          "shift": "&"
+        },
+        {
+          "key": "8",
+          "shift": "*"
+        },
+        {
+          "key": "9",
+          "shift": "("
+        },
+        {
+          "key": "0",
+          "shift": ")"
+        },
+        {
+          "key": "-",
+          "shift": "_"
+        },
+        {
+          "key": "=",
+          "shift": "+"
+        }
+      ],
+      [
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "[",
+          "shift": "{"
+        },
+        {
+          "key": "]",
+          "shift": "}"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": ";",
+          "shift": ":"
+        },
+        {
+          "key": "'",
+          "shift": "@"
+        },
+        {
+          "key": "#",
+          "shift": "~"
+        }
+      ],
+      [
+        {
+          "key": "\\",
+          "shift": "|"
+        },
+        {
+          "key": "z",
+          "shift": "Z"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": ",",
+          "shift": "<"
+        },
+        {
+          "key": ".",
+          "shift": ">"
+        },
+        {
+          "key": "/",
+          "shift": "?"
+        }
+      ]
+    ]
+  },
+  "fr": {
+    "name": "French AZERTY",
+    "variant": "Windows French (Legacy, AZERTY), ISO character positions",
+    "anchors": "F and J",
+    "rows": [
+      [
+        {
+          "key": "²",
+          "shift": ""
+        },
+        {
+          "key": "&",
+          "shift": "1"
+        },
+        {
+          "key": "é",
+          "shift": "2"
+        },
+        {
+          "key": "\"",
+          "shift": "3"
+        },
+        {
+          "key": "'",
+          "shift": "4"
+        },
+        {
+          "key": "(",
+          "shift": "5"
+        },
+        {
+          "key": "-",
+          "shift": "6"
+        },
+        {
+          "key": "è",
+          "shift": "7"
+        },
+        {
+          "key": "_",
+          "shift": "8"
+        },
+        {
+          "key": "ç",
+          "shift": "9"
+        },
+        {
+          "key": "à",
+          "shift": "0"
+        },
+        {
+          "key": ")",
+          "shift": "°"
+        },
+        {
+          "key": "=",
+          "shift": "+"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "z",
+          "shift": "Z"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "^",
+          "shift": "¨",
+          "dead": true
+        },
+        {
+          "key": "$",
+          "shift": "£"
+        }
+      ],
+      [
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": "ù",
+          "shift": "%"
+        },
+        {
+          "key": "*",
+          "shift": "µ"
+        }
+      ],
+      [
+        {
+          "key": "<",
+          "shift": ">"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": ",",
+          "shift": "?"
+        },
+        {
+          "key": ";",
+          "shift": "."
+        },
+        {
+          "key": ":",
+          "shift": "/"
+        },
+        {
+          "key": "!",
+          "shift": "§"
+        }
+      ]
+    ]
+  },
+  "de": {
+    "name": "German QWERTZ",
+    "variant": "Windows German, ISO character positions",
+    "anchors": "F and J",
+    "rows": [
+      [
+        {
+          "key": "^",
+          "shift": "°",
+          "dead": true
+        },
+        {
+          "key": "1",
+          "shift": "!"
+        },
+        {
+          "key": "2",
+          "shift": "\""
+        },
+        {
+          "key": "3",
+          "shift": "§"
+        },
+        {
+          "key": "4",
+          "shift": "$"
+        },
+        {
+          "key": "5",
+          "shift": "%"
+        },
+        {
+          "key": "6",
+          "shift": "&"
+        },
+        {
+          "key": "7",
+          "shift": "/"
+        },
+        {
+          "key": "8",
+          "shift": "("
+        },
+        {
+          "key": "9",
+          "shift": ")"
+        },
+        {
+          "key": "0",
+          "shift": "="
+        },
+        {
+          "key": "ß",
+          "shift": "?"
+        },
+        {
+          "key": "´",
+          "shift": "`",
+          "dead": true
+        }
+      ],
+      [
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "z",
+          "shift": "Z"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "ü",
+          "shift": "Ü"
+        },
+        {
+          "key": "+",
+          "shift": "*"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": "ö",
+          "shift": "Ö"
+        },
+        {
+          "key": "ä",
+          "shift": "Ä"
+        },
+        {
+          "key": "#",
+          "shift": "'"
+        }
+      ],
+      [
+        {
+          "key": "<",
+          "shift": ">"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": ",",
+          "shift": ";"
+        },
+        {
+          "key": ".",
+          "shift": ":"
+        },
+        {
+          "key": "-",
+          "shift": "_"
+        }
+      ]
+    ]
+  },
+  "dvorak": {
+    "name": "US Dvorak",
+    "variant": "Standard US Dvorak, ANSI character positions",
+    "anchors": "U and H",
+    "rows": [
+      [
+        {
+          "key": "`",
+          "shift": "~"
+        },
+        {
+          "key": "1",
+          "shift": "!"
+        },
+        {
+          "key": "2",
+          "shift": "@"
+        },
+        {
+          "key": "3",
+          "shift": "#"
+        },
+        {
+          "key": "4",
+          "shift": "$"
+        },
+        {
+          "key": "5",
+          "shift": "%"
+        },
+        {
+          "key": "6",
+          "shift": "^"
+        },
+        {
+          "key": "7",
+          "shift": "&"
+        },
+        {
+          "key": "8",
+          "shift": "*"
+        },
+        {
+          "key": "9",
+          "shift": "("
+        },
+        {
+          "key": "0",
+          "shift": ")"
+        },
+        {
+          "key": "[",
+          "shift": "{"
+        },
+        {
+          "key": "]",
+          "shift": "}"
+        }
+      ],
+      [
+        {
+          "key": "'",
+          "shift": "\""
+        },
+        {
+          "key": ",",
+          "shift": "<"
+        },
+        {
+          "key": ".",
+          "shift": ">"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": "/",
+          "shift": "?"
+        },
+        {
+          "key": "=",
+          "shift": "+"
+        },
+        {
+          "key": "\\",
+          "shift": "|"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "-",
+          "shift": "_"
+        }
+      ],
+      [
+        {
+          "key": ";",
+          "shift": ":"
+        },
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "z",
+          "shift": "Z"
+        }
+      ]
+    ]
+  },
+  "colemak": {
+    "name": "Colemak",
+    "variant": "Standard Colemak on US ANSI; not Colemak-DH",
+    "anchors": "T and N",
+    "rows": [
+      [
+        {
+          "key": "`",
+          "shift": "~"
+        },
+        {
+          "key": "1",
+          "shift": "!"
+        },
+        {
+          "key": "2",
+          "shift": "@"
+        },
+        {
+          "key": "3",
+          "shift": "#"
+        },
+        {
+          "key": "4",
+          "shift": "$"
+        },
+        {
+          "key": "5",
+          "shift": "%"
+        },
+        {
+          "key": "6",
+          "shift": "^"
+        },
+        {
+          "key": "7",
+          "shift": "&"
+        },
+        {
+          "key": "8",
+          "shift": "*"
+        },
+        {
+          "key": "9",
+          "shift": "("
+        },
+        {
+          "key": "0",
+          "shift": ")"
+        },
+        {
+          "key": "-",
+          "shift": "_"
+        },
+        {
+          "key": "=",
+          "shift": "+"
+        }
+      ],
+      [
+        {
+          "key": "q",
+          "shift": "Q"
+        },
+        {
+          "key": "w",
+          "shift": "W"
+        },
+        {
+          "key": "f",
+          "shift": "F"
+        },
+        {
+          "key": "p",
+          "shift": "P"
+        },
+        {
+          "key": "g",
+          "shift": "G"
+        },
+        {
+          "key": "j",
+          "shift": "J"
+        },
+        {
+          "key": "l",
+          "shift": "L"
+        },
+        {
+          "key": "u",
+          "shift": "U"
+        },
+        {
+          "key": "y",
+          "shift": "Y"
+        },
+        {
+          "key": ";",
+          "shift": ":"
+        },
+        {
+          "key": "[",
+          "shift": "{"
+        },
+        {
+          "key": "]",
+          "shift": "}"
+        },
+        {
+          "key": "\\",
+          "shift": "|"
+        }
+      ],
+      [
+        {
+          "key": "a",
+          "shift": "A"
+        },
+        {
+          "key": "r",
+          "shift": "R"
+        },
+        {
+          "key": "s",
+          "shift": "S"
+        },
+        {
+          "key": "t",
+          "shift": "T"
+        },
+        {
+          "key": "d",
+          "shift": "D"
+        },
+        {
+          "key": "h",
+          "shift": "H"
+        },
+        {
+          "key": "n",
+          "shift": "N"
+        },
+        {
+          "key": "e",
+          "shift": "E"
+        },
+        {
+          "key": "i",
+          "shift": "I"
+        },
+        {
+          "key": "o",
+          "shift": "O"
+        },
+        {
+          "key": "'",
+          "shift": "\""
+        }
+      ],
+      [
+        {
+          "key": "z",
+          "shift": "Z"
+        },
+        {
+          "key": "x",
+          "shift": "X"
+        },
+        {
+          "key": "c",
+          "shift": "C"
+        },
+        {
+          "key": "v",
+          "shift": "V"
+        },
+        {
+          "key": "b",
+          "shift": "B"
+        },
+        {
+          "key": "k",
+          "shift": "K"
+        },
+        {
+          "key": "m",
+          "shift": "M"
+        },
+        {
+          "key": ",",
+          "shift": "<"
+        },
+        {
+          "key": ".",
+          "shift": ">"
+        },
+        {
+          "key": "/",
+          "shift": "?"
+        }
+      ]
+    ]
+  }
+}

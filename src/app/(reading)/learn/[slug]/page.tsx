@@ -4,9 +4,15 @@ import { articles } from "@/content/catalog";
 import dvorak from "@/content/dvorak";
 import colemak from "@/content/colemak";
 import history from "@/content/history";
+import french from "@/content/french-keyboard-layout";
+import german from "@/content/german-keyboard-layout";
+import usUk from "@/content/us-vs-uk-keyboard";
+import international from "@/content/us-international-keyboard";
+import troubleshooting from "@/content/keyboard-typing-wrong-letters";
+import charts from "@/content/keyboard-layout-charts";
 import { contentMetadata } from "@/lib/metadata";
 
-const guides = { dvorak, colemak, history };
+const guides = { dvorak, colemak, history, "french-keyboard-layout": french, "german-keyboard-layout": german, "us-vs-uk-keyboard": usUk, "us-international-keyboard": international, "keyboard-typing-wrong-letters": troubleshooting, "keyboard-layout-charts": charts };
 type Slug = keyof typeof guides;
 const isSlug = (slug: string): slug is Slug => Object.prototype.hasOwnProperty.call(guides, slug);
 
