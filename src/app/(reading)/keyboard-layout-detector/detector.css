@@ -1,6 +1,6 @@
 .detector-card { border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); padding: 1.5rem; }
 .detector-input { border-radius: .5rem; padding: .25rem; }
-.detector-input:focus-visible { outline: 2px solid var(--accent); outline-offset: .5rem; }
+.detector-input:focus { outline: none; }
 .detector-step { color: var(--accent); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: .75rem; }
 .detector-input h2 { font-size: 1.35rem; font-weight: 600; line-height: 1.35; letter-spacing: -.025em; }
 .detector-explanation { color: var(--muted); font-size: .9rem; line-height: 1.7; margin-top: .75rem; }
