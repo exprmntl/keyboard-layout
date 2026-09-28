@@ -307,7 +307,13 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you? <span aria-hidden="true">↗</span></Link>
+            <Link
+              href={keyboardLayout === "qwerty" ? "/compare/qwerty-dvorak-colemak" : `/learn/${keyboardLayout}`}
+              className="underline underline-offset-4"
+            >
+              {keyboardLayout === "qwerty" ? "Which layout is right for you?" : `Learn ${selectedLayout.name}: practice & setup`}{" "}
+              <span aria-hidden="true">↗</span>
+            </Link>
             <p>
               A product by{" "}
               <a
