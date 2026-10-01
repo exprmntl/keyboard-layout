@@ -5,7 +5,7 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 | Event | Trigger | Properties |
 | --- | --- | --- |
 | `layout_detection_started` | First accepted key in a guided check | `method: guided_keys` |
-| `layout_detection_completed` | All six positions checked | `method`, `result` (family ID or `unknown`) |
+| `layout_detection_completed` | Guided check completes, or visitor chooses family-only completion | `method`, `result` (layout/family ID or `unknown`), `match_level` (`variant`, `family`, `unknown`) |
 | `layout_selected` | A different layout is selected | `layout`, `previous_layout` |
 | `practice_started` | First accepted character or space in a practice run | `layout`, `practice_id`, `active_seconds`, `character_count` |
 | `practice_engaged` | Once after 30 cumulative seconds of active typing in that run | Same aggregate practice properties |

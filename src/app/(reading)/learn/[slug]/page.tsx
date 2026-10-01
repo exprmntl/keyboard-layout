@@ -10,9 +10,11 @@ import usUk from "@/content/us-vs-uk-keyboard";
 import international from "@/content/us-international-keyboard";
 import troubleshooting from "@/content/keyboard-typing-wrong-letters";
 import charts from "@/content/keyboard-layout-charts";
+import spanish from "@/content/spanish-vs-latin-american-keyboard";
+import portuguese from "@/content/portuguese-vs-brazilian-keyboard";
 import { contentMetadata } from "@/lib/metadata";
 
-const guides = { dvorak, colemak, history, "french-keyboard-layout": french, "german-keyboard-layout": german, "us-vs-uk-keyboard": usUk, "us-international-keyboard": international, "keyboard-typing-wrong-letters": troubleshooting, "keyboard-layout-charts": charts };
+const guides = { dvorak, colemak, history, "french-keyboard-layout": french, "german-keyboard-layout": german, "us-vs-uk-keyboard": usUk, "us-international-keyboard": international, "keyboard-typing-wrong-letters": troubleshooting, "keyboard-layout-charts": charts, "spanish-vs-latin-american-keyboard": spanish, "portuguese-vs-brazilian-keyboard": portuguese };
 type Slug = keyof typeof guides;
 const isSlug = (slug: string): slug is Slug => Object.prototype.hasOwnProperty.call(guides, slug);
 
