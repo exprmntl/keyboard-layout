@@ -1,15 +1,23 @@
 .detector-card { border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); padding: 1.5rem; }
-.detector-input { border-radius: .5rem; padding: .25rem; }
+.detector-input { border-radius: .5rem; padding: .25rem; scroll-margin-top: 1rem; }
 .detector-input:focus { outline: none; }
 .detector-step { color: var(--accent); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: .75rem; }
 .detector-input h2 { font-size: 1.35rem; font-weight: 600; line-height: 1.35; letter-spacing: -.025em; }
 .detector-explanation { color: var(--muted); font-size: .9rem; line-height: 1.7; margin-top: .75rem; }
+.detector-next-key { margin-top: 1.25rem; font-size: .9rem; line-height: 1.5; }
+.detector-next-label { color: var(--muted); font-size: .75rem; margin-bottom: .35rem; }
+.detector-next-key > p[id] { font-weight: 600; }
+.detector-next-hint { color: var(--muted); font-size: .8rem; margin-top: .35rem; }
 .detector-diagram { padding: 1rem .75rem; margin: 1.5rem 0 .75rem; border-radius: .6rem; background: var(--tray); }
 .detector-key-row { display: flex; gap: .25rem; margin: .3rem 0; }
 .detector-key { position: relative; flex: var(--key-width, 1) 1 0; min-width: 0; padding: 0; display: grid; place-items: center; height: 2.4rem; border: 1px solid var(--key-edge); border-bottom-width: 3px; border-radius: .3rem; background: var(--key); color: var(--muted); font: .85rem ui-monospace, monospace; }
 .detector-key-function { font-size: .55rem; }
 button.detector-key { cursor: pointer; }
 button.detector-key:hover { border-color: var(--accent); }
+button.detector-key { grid-template-rows: .85rem 1fr; }
+.detector-key small { font-size: .6rem; line-height: 1; }
+.detector-key span { align-self: start; }
+.detector-skip { color: var(--muted); text-decoration: underline; font-size: .8rem; }
 .detector-key-bump::after { content: ""; position: absolute; bottom: .2rem; width: .35rem; height: 1px; background: currentColor; opacity: .65; }
 .detector-key-done { background: var(--accent-soft); color: var(--ink); }
 .detector-key-current { background: var(--accent); color: var(--page); border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 1px; font-weight: 700; }

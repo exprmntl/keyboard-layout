@@ -5,7 +5,7 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 | Event | Trigger | Properties |
 | --- | --- | --- |
 | `layout_detection_started` | First accepted key in a guided check | `method: guided_keys` |
-| `layout_detection_completed` | All six positions checked | `method`, `result` (family ID or `unknown`) |
+| `layout_detection_completed` | Guided check completes, or visitor chooses family-only completion | `method`, `result` (layout/family ID or `unknown`), `match_level` (`variant`, `family`, `unknown`) |
 | `layout_selected` | A different layout is selected | `layout`, `previous_layout` |
 | `practice_started` | First accepted character or space in a practice run | `layout`, `practice_id`, `active_seconds`, `character_count` |
 | `practice_engaged` | Once after 30 cumulative seconds of active typing in that run | Same aggregate practice properties |
@@ -15,7 +15,7 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 
 All events carry `analytics_site: keyboard-layout-tester`, `analytics_version: 1`, and `is_internal`. The SDK supplies session, device, referrer and campaign context. Product IDs remain stable if copy changes. Affiliate clicks measure outbound interest; only the merchant can confirm orders and commission.
 
-The layout detector keeps the latest character per physical key only in component memory and blocks the entire check area from session replay. Six distinct positions complete a check in any order; extra keys only fill the diagram, and repeat presses do not advance progress. Clicking a diagram key selects a position without recording a sample. Completion is emitted at most once per run. Its events contain only the method and resulting family, never raw keys, characters, or sample arrays. Owner/QA exclusions use the existing persistent internal marker and preview-host policy. Production reporting must filter `is_internal != true`; production delivery will need verification after release.
+The layout detector keeps the latest character per physical key and Shift layer only in component memory and blocks the entire check area from session replay. Six initial positions identify a layout family, followed by distinguishing positions when needed for a supported variant. Input can arrive in any order; extra keys fill the diagram and can help distinguish variants. Held-key repeats do not advance progress. Clicking a diagram key selects a position without recording a sample. Completion is emitted at most once per run, including when a visitor finishes with the family only. Its events contain only the method, result ID and match level, never raw keys, characters, or sample arrays. Owner/QA exclusions use the existing persistent internal marker and preview-host policy. Production reporting must filter `is_internal != true`; production delivery will need verification after release.
 
 ## Practice definition
 

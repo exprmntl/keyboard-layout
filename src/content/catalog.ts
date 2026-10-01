@@ -1,4 +1,19 @@
 export const articles = {
+  "spanish-vs-latin-american-keyboard": {
+    path: "/learn/spanish-vs-latin-american-keyboard", title: "Spanish vs Latin American Keyboard Layouts: Ñ, Symbols and Setup",
+    description: "Compare Spanish (Spain) and Latin American keyboard diagrams. Find ñ, @, accents, ¿ and ¡, check your active layout, and choose the right input settings.",
+    category: "Layout comparison", summary: "Both have Ñ, but their accents and symbols move. Compare the diagrams and find the layout your keyboard is using.",
+  },
+  "portuguese-vs-brazilian-keyboard": {
+    path: "/learn/portuguese-vs-brazilian-keyboard", title: "Portuguese vs Brazilian Keyboard Layouts: Portugal and ABNT2",
+    description: "Compare Portuguese (Portugal) with Brazilian ABNT2 keyboard diagrams, ç, accents, @ and punctuation. Learn what ABNT2 means and how to select your input layout.",
+    category: "Layout comparison", summary: "Find Ç, accents and punctuation on Portugal and Brazilian keyboards, and understand the ABNT2 name.",
+  },
+  "colemak-vs-colemak-dh": {
+    path: "/compare/colemak-vs-colemak-dh", title: "Colemak vs Colemak-DH: Key Differences, Diagrams and Choosing",
+    description: "Compare standard Colemak and Colemak-DH diagrams, D and H positions, Angle Mod and matrix variants. Check which you use and choose the right setup and tutor.",
+    category: "Comparison", summary: "See which keys move, why DH changes the center columns, and which diagram matches your keyboard.",
+  },
   dvorak: {
     path: "/learn/dvorak",
     title: "How to Learn Dvorak: A Beginner’s Guide",
