@@ -4,7 +4,7 @@ The detector compares `KeyboardEvent.code` (physical position) with `key` (outpu
 
 ## Flow and scope
 
-Six unshifted top-row positions establish QWERTY, AZERTY, QWERTZ, Dvorak, Colemak or the Colemak-DH family. QWERTY then asks for punctuation, Shift symbols and sometimes dead keys; Colemak and DH also check physical G, H and M. Queries are adaptive and accept the required positions in any order, including before the initial letters. Standard Colemak starts `qwfpgj`; current DH starts `qwfpbj`.
+Six unshifted top-row positions establish QWERTY, AZERTY, QWERTZ, Dvorak, Colemak or the Colemak-DH family. The detected family becomes the main heading immediately; any remaining variant checks appear as optional instructions below it. Users can finish at this point. QWERTY can then check punctuation, Shift symbols and sometimes dead keys; Colemak and DH can check physical G, H and M. Queries are adaptive and accept the required positions in any order, including before the initial letters. Standard Colemak starts `qwfpgj`; current DH starts `qwfpbj`.
 
 Both the physical position and Shift layer identify a sample. Repeated keydown events and identical samples do not advance the check. Caps Lock case is normalized. A changed character at an already sampled position/layer requires a restart. Ctrl/Meta shortcuts retain their default behavior. Alt/Option characters do not count. Tab, Shift+Tab and Escape are not intercepted. A `Dead` event is accepted and displayed as ◌; active IME/composition events are rejected with guidance.
 

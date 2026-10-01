@@ -21,6 +21,10 @@ export default function LayoutDetector() {
   const nextProbe = !complete ? progress.nextProbe : undefined;
   const currentCode = active && !inconsistent ? selectedCode ?? nextProbe?.code : undefined;
   const needsShift = currentCode === nextProbe?.code && !!nextProbe?.shift;
+  const refining = !complete && !inconsistent && progress.phase === "variant";
+  const family = refining ? progress.family : undefined;
+  const keyInstruction = currentCode ? `${needsShift ? "Hold Shift and press" : "Press"} the ${keyPosition(currentCode)}` : undefined;
+  const separateInstruction = refining || (complete && !!currentCode);
 
   function start() {
     setSamples([]);
@@ -67,21 +71,26 @@ export default function LayoutDetector() {
 
   return (
     <section className="detector-card ph-no-capture" data-private-typing aria-label="Check your keyboard layout">
-      <div ref={area} className="detector-input" tabIndex={0} role="group" aria-label="Keyboard detection area" aria-describedby="detector-instruction detector-guidance" onKeyDown={onKeyDown}>
+      <div ref={area} className="detector-input" tabIndex={0} role="group" aria-label="Keyboard detection area" aria-describedby={`detector-instruction detector-guidance${separateInstruction ? " detector-next-key" : ""}`} onKeyDown={onKeyDown}>
         <div aria-live="polite" aria-atomic="true">
-          <p className="detector-step">{inconsistent ? "Input changed" : complete ? "Check complete" : active ? progress.phase === "variant" ? "Checking the variant" : `${progress.count} of 6 letter positions checked` : "A quick keyboard check"}</p>
+          <p className="detector-step">{inconsistent ? "Input changed" : complete ? "Check complete" : family ? "Layout detected" : active ? `${progress.count} of 6 letter positions checked` : "A quick keyboard check"}</p>
           <h2 id="detector-instruction">
             {inconsistent ? "Start again to check one layout"
-              : selectedCode ? `${needsShift ? "Hold Shift and press" : "Press"} the ${keyPosition(selectedCode)}`
+              : family ? `Your keyboard layout is ${family.name.endsWith(" family") ? "in the " : ""}${family.name}`
               : complete ? (result ? `Your input matches ${result.name}` : "No supported layout matched")
-              : currentCode ? `${needsShift ? "Hold Shift and press" : "Press"} the ${keyPosition(currentCode)}` : "Find the layout you’re using"}
+              : keyInstruction ?? "Find the layout you’re using"}
           </h2>
           <p className="detector-explanation">
             {inconsistent ? "The same physical key produced different characters. Your input layout or remapping may have changed during the check."
               : complete ? (result?.note ?? "Your input may use another layout, a custom remapping, or a browser that reports positions differently. Confirm it in your system settings.")
-              : progress.phase === "variant" ? `Your letters match ${progress.family?.name}. A few more positions will check the variant. ${needsShift ? "Hold either Shift key for this check." : "Press the highlighted key without Shift or Alt/Option."}`
-              : "Start with six letter positions, then check a few symbols or letters if needed. Follow the highlight on your physical keyboard; any order works."}
+              : family ? "You can stop here, or check a few more keys to identify the specific variant."
+              : "Check six letter positions to find your layout. You can then choose to check its variant. Follow the highlight on your physical keyboard; any order works."}
           </p>
+          {separateInstruction && keyInstruction ? <div className="detector-next-key">
+            <p className="detector-next-label">{refining ? "Optional: check the variant" : "Fill another key"}</p>
+            <p id="detector-next-key">{keyInstruction}</p>
+            {refining ? <p className="detector-next-hint">{needsShift ? "Hold either Shift key for this check." : "Press without Shift or Alt/Option."}</p> : null}
+          </div> : null}
         </div>
         <DetectorKeyboard samples={samples} currentCode={currentCode} needsShift={needsShift} onSelect={selectKey} />
         <p id="detector-guidance" className="detector-guidance">Keys fill with what you type; Shift characters appear above. Click a key to choose a position, then press it on your physical keyboard. The diagram is schematic; your key shapes may differ.</p>
@@ -96,7 +105,7 @@ export default function LayoutDetector() {
             completionTracked.current = true;
             track("layout_detection_completed", { method: "guided_keys", result: progress.family!.id, match_level: "family" });
           }
-        }}>Finish with family only</button> : null}
+        }}>Finish here</button> : null}
       </div>
       <p className="detector-privacy">Key presses stay in your browser. We count checks and layout results, never the characters you type.</p>
     </section>
