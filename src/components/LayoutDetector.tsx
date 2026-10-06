@@ -98,7 +98,7 @@ export default function LayoutDetector() {
       </div>
       <div className="detector-actions">
         <button type="button" className="detector-button" onClick={start}>{active ? "Start again" : "Check my layout"}</button>
-        {complete && !inconsistent ? <Link href={result?.href ?? "#confirm-layout"}>{result?.link ?? "Check your system settings"} <span aria-hidden="true">→</span></Link> : <a href="#confirm-layout">Check in system settings</a>}
+        {complete && !inconsistent ? <Link href={result?.href ?? "#confirm-layout"}>{result?.link ?? "Check your system settings"}</Link> : <a href="#confirm-layout">Check in system settings</a>}
         {!complete && !inconsistent && progress.family ? <button className="detector-skip" type="button" onClick={() => {
           setFamilyOnly(true); setSelectedCode(undefined); setNotice("");
           if (!completionTracked.current) {

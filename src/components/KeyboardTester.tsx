@@ -207,7 +207,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
       <main ref={mainRef} className="tester-main w-full min-h-[100svh] max-w-6xl mx-auto px-4 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8 md:px-12 md:pt-10 md:pb-12 flex flex-col">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="site-brand"><span className="brand-key" aria-hidden="true">k.</span>Keyboard Layout</Link>
-          <div className="site-nav-actions"><Link href="/learn">Guides <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
+          <div className="site-nav-actions"><Link href="/learn">Guides</Link><ThemeToggle /></div>
         </nav>
         <header className="tester-header">
           <p className="tester-eyebrow">{selectedLayout.heading}</p>
@@ -301,13 +301,23 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
 
+        {keyboardLayout === "dvorak" && (
+          <nav aria-label="Dvorak resources" className="mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
+            <Link href="/learn/dvorak" className="underline underline-offset-4">Learn Dvorak</Link>
+            <Link href="/learn/keyboard-layout-charts#dvorak" className="underline underline-offset-4">Dvorak layout chart</Link>
+          </nav>
+        )}
+
         <KeyboardRecommendations layout={keyboardLayout} />
 
         {children}
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you? <span aria-hidden="true">↗</span></Link>
+            <nav aria-label="Layout resources" className="flex flex-wrap gap-x-6 gap-y-2 text-left">
+              <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you?</Link>
+              <Link href="/keyboard-layout-detector" className="underline underline-offset-4">Detect your keyboard layout</Link>
+            </nav>
             <p>
               A product by{" "}
               <a

@@ -16,7 +16,7 @@ export default function GuidesPage() {
         {Object.entries(articles).map(([id, article]) => (
           <Link className="guide-card" href={article.path} key={id}>
             <span className="guide-eyebrow">{article.category}</span>
-            <h2>{article.title}<span aria-hidden="true"> →</span></h2>
+            <h2>{article.title}</h2>
             <p>{article.summary}</p>
           </Link>
         ))}

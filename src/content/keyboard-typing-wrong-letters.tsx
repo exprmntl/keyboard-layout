@@ -23,6 +23,7 @@ const content: ArticleContent = {
       <p>Do not change several settings at once. Make one adjustment, repeat the same short test, and keep the change only if it explains the behavior.</p>
     </> },
     { id: "input-layout", title: "1. Check the selected input layout", body: <>
+      <p>If you are unsure which layout is active, try the <Link href="/keyboard-layout-detector">keyboard layout detector</Link>. It compares the letters and symbols your keys produce with supported layouts. Use the result as a clue, then check the input settings below.</p>
       <h3>Windows</h3>
       <p>Press <strong>Windows + Space</strong> to inspect and switch installed layouts. If only one is installed, the shortcut may not change anything. To add the intended layout, open <strong>Settings → Time &amp; language → Language &amp; region</strong>, then the relevant language’s <strong>Language options → Add a keyboard</strong>.<Cite n={1} source={sources.windows} /></p>
       <p>Choose the exact keyboard variant, not just the language. “English” can include US, UK and US International mappings. Retest letters and symbols before removing any old input source.</p>
