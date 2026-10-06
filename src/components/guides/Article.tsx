@@ -47,7 +47,7 @@ export default function Article({ id, content }: { id: ArticleId; content: Artic
       </div>
       <aside className="guide-related" aria-label="More keyboard layout guides">
         <h2>Keep exploring</h2>
-        {(content.related ?? (Object.keys(articles) as ArticleId[]).filter(key => key !== id).slice(0, 3)).map(key => <Link key={key} href={articles[key].path}>{articles[key].title}<span aria-hidden="true"> →</span></Link>)}
+        {(content.related ?? (Object.keys(articles) as ArticleId[]).filter(key => key !== id).slice(0, 3)).map(key => <Link key={key} href={articles[key].path}>{articles[key].title}</Link>)}
       </aside>
     </article>
   );

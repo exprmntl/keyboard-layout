@@ -112,7 +112,6 @@ export default function KeyboardRecommendations({ layout }: { layout: LayoutName
               <p className="mb-5 text-[11px] leading-relaxed text-gray-500 dark:text-gray-400">Fully assembled · QWERTY keycaps</p>
               <span className="mt-auto flex items-center justify-between border-t border-gray-200 pt-3 text-sm font-medium dark:border-gray-800">
                 View at Keychron
-                <span aria-hidden="true" className="text-lg text-gray-500 group-hover:text-black dark:group-hover:text-white">↗</span>
               </span>
             </a>
           ))}
