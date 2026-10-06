@@ -301,13 +301,23 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
 
+        {keyboardLayout === "dvorak" && (
+          <nav aria-label="Dvorak resources" className="mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
+            <Link href="/learn/dvorak" className="underline underline-offset-4">Learn Dvorak</Link>
+            <Link href="/learn/keyboard-layout-charts#dvorak" className="underline underline-offset-4">Dvorak layout chart</Link>
+          </nav>
+        )}
+
         <KeyboardRecommendations layout={keyboardLayout} />
 
         {children}
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you? <span aria-hidden="true">↗</span></Link>
+            <nav aria-label="Layout resources" className="flex flex-wrap gap-x-6 gap-y-2 text-left">
+              <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you? <span aria-hidden="true">↗</span></Link>
+              <Link href="/keyboard-layout-detector" className="underline underline-offset-4">Detect your keyboard layout <span aria-hidden="true">↗</span></Link>
+            </nav>
             <p>
               A product by{" "}
               <a

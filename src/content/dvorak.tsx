@@ -4,6 +4,7 @@ import LayoutDiagram from "@/components/guides/LayoutDiagram";
 import { sources } from "./sources";
 
 const content: ArticleContent = {
+  related: ["comparison", "keyboard-layout-charts", "colemak"],
   introduction: <>
     <p>You can try Dvorak before deciding to learn it. Open the <Link href="/dvorak">Dvorak simulator</Link>, put your hands in their usual typing position, and follow the on-screen keyboard. The letters will come from different places, but your physical keyboard can stay exactly where it is.</p>
     <p>Learning the layout is a larger decision. You are replacing practiced movements with unfamiliar ones, so ordinary writing will initially take more attention. A useful approach is to separate exploration, deliberate practice, and everyday use. This guide takes you through those stages without assuming that you can stop using QWERTY for work.</p>
@@ -30,7 +31,7 @@ const content: ArticleContent = {
     { id: "practice-plan", title: "Build a practice routine you can keep", body: <>
       <p>Start with roughly ten minutes of focused practice on days when you can fit it in. Treat that as a manageable starting point, not a required dose or a promise about learning time. Stop sooner if concentration or comfort deteriorates.</p>
       <h3>Stage 1: learn positions without rushing</h3>
-      <p>Use a tutor with Dvorak lessons, such as <a href="https://www.typingclub.com/dvorak">TypingClub’s Dvorak course</a>, for a gradual introduction to the keys. Keep a layout diagram beside the lesson. Pause to recall a position before checking it; guessing rapidly mostly gives you more errors to correct.</p>
+      <p>Use a tutor with Dvorak lessons, such as <a href="https://www.typingclub.com/dvorak">TypingClub’s Dvorak course</a>, for a gradual introduction to the keys. Keep a <Link href="/learn/keyboard-layout-charts#dvorak">Dvorak layout chart</Link> beside the lesson. Pause to recall a position before checking it; guessing rapidly mostly gives you more errors to correct.</p>
       <p>Home-row words such as <strong>the, this, those, hand,</strong> and <strong>sound</strong> show how much ordinary English can already be formed there. They are useful examples to recognize, rather than a complete training vocabulary.</p>
       <h3>Stage 2: connect the rows</h3>
       <p>Add the remaining letters in small groups through your tutor, then practice mixed words. Notice where your QWERTY habits intrude. If one letter repeatedly causes a mistake, give it a short period of deliberate attention instead of restarting the entire lesson.</p>
