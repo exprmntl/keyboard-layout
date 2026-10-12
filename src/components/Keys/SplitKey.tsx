@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 type SplitKeyProps = {
   BottomIcon?: () => JSX.Element;
   TopIcon?: () => JSX.Element;

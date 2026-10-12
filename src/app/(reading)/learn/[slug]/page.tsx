@@ -24,12 +24,14 @@ export function generateStaticParams() {
   return Object.keys(guides).map(slug => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  if (!isSlug(params.slug)) notFound();
-  return contentMetadata(articles[params.slug], "article");
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  if (!isSlug(slug)) notFound();
+  return contentMetadata(articles[slug], "article");
 }
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  if (!isSlug(params.slug)) notFound();
-  return <Article id={params.slug} content={guides[params.slug]} />;
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  if (!isSlug(slug)) notFound();
+  return <Article id={slug} content={guides[slug]} />;
 }

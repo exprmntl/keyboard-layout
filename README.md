@@ -25,7 +25,7 @@ On a phone or tablet, tap the keyboard docked at the bottom of the screen to exp
 
 ## Getting Started
 
-Install dependencies, then run the development server:
+Use Node.js 22.6 or newer. Install dependencies, then run the development server:
 
 ```bash
 npm ci
@@ -41,9 +41,11 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Checks
 
 ```bash
+npm run lint
 npm run build
 npm run test:analytics
 npm run test:typing
+npm run test:detector
 ```
 
 ## Production and analytics

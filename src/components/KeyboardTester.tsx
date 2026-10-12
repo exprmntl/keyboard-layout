@@ -49,7 +49,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
   const keyMap: TypingKeyMap = KeyMap[keyboardLayout];
   const previousLayout = useRef(keyboardLayout);
   const practice = useRef<ReturnType<typeof createPracticeTracker> | null>(null);
-  if (!practice.current) {
+  if (practice.current === null) {
     practice.current = createPracticeTracker(keyboardLayout, track, createPracticeId);
   }
 
@@ -128,7 +128,8 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
   }, [typeTestState]);
 
   useEffect(() => {
-    // Set type test to a set of random words
+    // Randomize after hydration so the server and initial browser markup match.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTypeTestState({
       finishedText: "",
       typedText: "",
@@ -136,29 +137,23 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
-  useEffect(() => {
-    // Add more words to type if its running low
-    const { unfinishedText } = typeTestState;
-
-    if (unfinishedText !== "" && unfinishedText.length < 500) {
-      setTypeTestState((prev) => ({
-        ...prev,
-        unfinishedText:
-          prev.unfinishedText +
-          " " +
-          [...words].sort(() => 0.5 - Math.random()).join(" "),
-      }));
-    }
-  }, [typeTestState]);
-
   const handleTypingKey = (code: string, shifted: boolean, clearMistakes = false) => {
-    setTypeTestState((prev) => applyTypingKey(prev, code, keyMap, shifted, clearMistakes));
+    setTypeTestState((prev) => {
+      const next = applyTypingKey(prev, code, keyMap, shifted, clearMistakes);
+      if (next.unfinishedText !== "" && next.unfinishedText.length < 500) {
+        return {
+          ...next,
+          unfinishedText: next.unfinishedText + " " + [...words].sort(() => 0.5 - Math.random()).join(" "),
+        };
+      }
+      return next;
+    });
   };
 
   // Handle new line
   const handleNewLine = useCallback(() => {
     setTypeTestState((prev) => prev.finishedText ? { ...prev, finishedText: "" } : prev);
-  }, []);
+  }, [setTypeTestState]);
 
   // KeyboardEvent Handlers
   const handleKeyDown = (event: React.KeyboardEvent) => {
