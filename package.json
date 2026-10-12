@@ -2,25 +2,32 @@
   "name": "keyboard-layout",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.6.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src --max-warnings=0",
+    "icons": "node scripts/generate-icons.mjs",
+    "test:analytics": "node --experimental-strip-types --test tests/analytics.test.mjs",
+    "test:typing": "node --experimental-strip-types --test tests/typing.test.mjs",
+    "test:detector": "node --experimental-strip-types --test tests/layout-detection.test.mjs"
   },
   "dependencies": {
-    "next": "14.2.35",
-    "react": "^18",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18"
+    "next": "16.4.0",
+    "posthog-js": "1.433.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

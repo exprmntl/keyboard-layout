@@ -11,7 +11,7 @@ type KeyboardProps = {
 
 const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
   return (
-    <div className="flex flex-col gap-2 dark:text-gray-300 select-none origin-top scale-50 md:scale-[0.6] min-[900px]:scale-75 lg:scale-90 xl:scale-100">
+    <div className="keyboard flex flex-col dark:text-gray-300 select-none">
       <KeyRow>
         <Key
           {...keyMap.Backquote}
@@ -81,7 +81,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
         <SpecialKey
           {...keyMap.Backspace}
           position={TextPosition.RIGHT}
-          width="w-24"
+          size="wide"
           highlight={pressedKeys.has("Backspace")}
           hint={hintKey === "Backspace"}
         />
@@ -89,7 +89,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
       <KeyRow>
         <SpecialKey
           {...keyMap.Tab}
-          width="w-24"
+          size="wide"
           highlight={pressedKeys.has("Tab")}
           hint={hintKey === "Tab"}
         />
@@ -162,7 +162,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
       <KeyRow>
         <SpecialKey
           {...keyMap.CapsLock}
-          width="w-[7.25rem]"
+          size="extraWide"
           highlight={pressedKeys.has("CapsLock")}
           hint={hintKey === "CapsLock"}
         />
@@ -226,7 +226,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
         <SpecialKey
           {...keyMap.Enter}
           position={TextPosition.RIGHT}
-          width="w-[7.25rem]"
+          size="extraWide"
           highlight={pressedKeys.has("Enter")}
           hint={hintKey === "Enter"}
         />
@@ -234,7 +234,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
       <KeyRow>
         <SpecialKey
           {...keyMap.ShiftLeft}
-          width="w-[9.5rem]"
+          size="shift"
           highlight={pressedKeys.has("ShiftLeft")}
           hint={hintKey === "ShiftLeft"}
         />
@@ -291,7 +291,7 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
         <SpecialKey
           {...keyMap.ShiftRight}
           position={TextPosition.RIGHT}
-          width="w-[9.5rem]"
+          size="shift"
           highlight={pressedKeys.has("ShiftRight")}
           hint={hintKey === "ShiftRight"}
         />
@@ -310,20 +310,20 @@ const Keyboard = ({ pressedKeys, keyMap, hintKey }: KeyboardProps) => {
         />
         <SpecialKey
           {...keyMap.MetaLeft}
-          width="w-20"
+          size="command"
           highlight={pressedKeys.has("MetaLeft")}
           hint={hintKey === "MetaLeft"}
         />
         <SpecialKey
           {...keyMap.Space}
-          width="w-[22rem]"
+          size="space"
           highlight={pressedKeys.has("Space")}
           hint={hintKey === "Space"}
         />
         <SpecialKey
           {...keyMap.MetaRight}
           position={TextPosition.RIGHT}
-          width="w-20"
+          size="command"
           highlight={pressedKeys.has("MetaRight")}
           hint={hintKey === "MetaRight"}
         />

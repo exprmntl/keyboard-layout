@@ -1,20 +1,22 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import SocialImg from "@/assets/social.png";
+import Analytics from "@/components/Analytics";
+import { SITE_URL } from "@/lib/site";
+import { layoutMetadata } from "@/lib/metadata";
+import { layouts } from "@/lib/layouts";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dvorak & Colemak Keyboard Tester | Try Alternative Layouts Online",
-  description:
-    "Test Dvorak, Colemak, and QWERTY keyboard layouts side by side. Type on any layout instantly in your browser — no software to install. Switch layouts with one click and practice typing on real text.",
-  metadataBase: new URL("https://keyboard.experimental.software/"),
-  applicationName: "Keyboard Layout Tester",
-  other: {
-    "google": "nositelinkssearchbox",
-  },
+  ...layoutMetadata("qwerty"),
+  metadataBase: SITE_URL,
+  applicationName: "Keyboard Layout",
+  robots: { index: true, follow: true, "max-image-preview": "large" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f4f0e8",
 };
 
 export default function RootLayout({
@@ -23,77 +25,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Keyboard Layout Tester" />
-      <meta
-        property="og:url"
-        content="https://keyboard.experimental.software/"
-      />
-      <meta
-        property="og:title"
-        content="Dvorak & Colemak Keyboard Tester | Try Alternative Layouts Online"
-      />
-      <meta
-        property="og:description"
-        content="Test Dvorak, Colemak, and QWERTY keyboard layouts side by side. Type on any layout instantly in your browser — no software to install."
-      />
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:url"
-        content="https://keyboard.experimental.software/"
-      />
-      <meta
-        name="twitter:title"
-        content="Dvorak & Colemak Keyboard Tester | Try Alternative Layouts Online"
-      />
-      <meta
-        name="twitter:description"
-        content="Test Dvorak, Colemak, and QWERTY keyboard layouts side by side. Type on any layout instantly in your browser — no software to install."
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Keyboard Layout Tester",
-            "url": "https://keyboard.experimental.software/"
-          })
-        }}
-      />
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-3XWS80C1HX"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-3XWS80C1HX');
-        `}
-      </Script>
-      <Script id="posthog" strategy="afterInteractive">
-        {`
-          !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
-          posthog.init("phc_gZCfyVO7HQTKkDH5G4UH15ejDCJlCHDgbf1XSbZbWGw", {
-            api_host: "https://us.i.posthog.com",
-            capture_pageview: true,
-            capture_pageleave: true,
-            disable_session_recording: false,
-            session_recording: {
-              maskAllInputs: false,
-            },
-          });
-        `}
-      </Script>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(()=>{let theme;try{theme=localStorage.getItem('keyboard-layout-theme')}catch{}const dark=theme==='dark'||(theme!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark)})()` }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": new URL("#website", SITE_URL).href,
+                  "name": "Keyboard Layout",
+                  "url": SITE_URL.href,
+                  "description": layouts.qwerty.description,
+                  "inLanguage": "en"
+                },
+                {
+                  "@type": "WebApplication",
+                  "@id": new URL("#app", SITE_URL).href,
+                  "name": "Keyboard Layout Simulator",
+                  "url": SITE_URL.href,
+                  "applicationCategory": "EducationalApplication",
+                  "operatingSystem": "Any",
+                  "browserRequirements": "Requires JavaScript. Supports physical keyboards and on-screen touch typing.",
+                  "isAccessibleForFree": true,
+                  "description": layouts.qwerty.description,
+                  "image": new URL("opengraph-image.png", SITE_URL).href,
+                  "inLanguage": "en",
+                  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                  "isPartOf": { "@id": new URL("#website", SITE_URL).href }
+                }
+              ]
+            })
+          }}
+        />
+      </head>
+      <body className={inter.className}>
+        <Analytics />
+        {children}
+      </body>
     </html>
   );
 }

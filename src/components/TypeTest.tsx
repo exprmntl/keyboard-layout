@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useRef, useState, useEffect, forwardRef } from "react";
+import { useRef, useEffect, forwardRef } from "react";
 
 type TypeTestProps = {
   finishedText: string;
@@ -24,11 +24,7 @@ const Letter = forwardRef<HTMLSpanElement, LetterProps>(function Letter(
   return (
     <span
       ref={ref}
-      className={`border-l-2 ${
-        current
-          ? "border-black animate-cursor dark:animate-cursor-dark"
-          : "border-transparent"
-      } ${incorrect ? "bg-red-100 dark:bg-red-950" : ""}`}
+      className={`typing-letter ${current ? "typing-cursor" : ""} ${incorrect ? "typing-mistake" : ""}`}
     >
       {children}
     </span>
@@ -42,26 +38,30 @@ const TypeTest = ({
   restText,
   handleNewLine,
 }: TypeTestProps) => {
-  // Create refs to find when newlines start
   const ref = useRef<HTMLSpanElement>(null);
-  const [yPosition, setYPosition] = useState(0);
+  const paragraph = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const newYPosition = ref.current?.offsetTop || 0;
-
-    if (
-      newYPosition > yPosition && // Went down to next line
-      yPosition !== 0 && // Not an initialization
-      incorrectText.length === 0 // If incorrect letters are typed, we don't want to newline
-    ) {
-      handleNewLine();
-    }
-
-    setYPosition(newYPosition);
-  }, [ref.current?.offsetTop]);
+    const element = paragraph.current;
+    if (!element) return;
+    const keepCursorVisible = () => {
+      const cursor = ref.current;
+      if (!cursor) return;
+      const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+      if (cursor.offsetTop >= lineHeight && finishedText && !incorrectText.length) {
+        handleNewLine();
+      }
+      // Also keep long mistakes visible, including after rotating a phone.
+      element.scrollTop = Math.floor(cursor.offsetTop / lineHeight) * lineHeight;
+    };
+    keepCursorVisible();
+    const observer = new ResizeObserver(keepCursorVisible);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [finishedText, correctText, incorrectText, restText, handleNewLine]);
 
   return (
-    <p className="text-2xl leading-relaxed tracking-tighter	h-[5rem] overflow-hidden select-none dark:text-gray-300">
+    <p ref={paragraph} className="relative h-[2lh] break-words text-lg leading-relaxed overflow-hidden select-none min-[500px]:text-xl md:text-2xl">
       <span>
         {finishedText.split("").map((letter, index) => (
           <Letter key={`${letter}-${index}`}>{letter}</Letter>
@@ -81,8 +81,8 @@ const TypeTest = ({
           </Letter>
         ))}
       </span>
-      <span className="text-gray-500">
-        {restText.split("").map((letter, index) => (
+      <span className="typing-remaining">
+        {restText.slice(0, 300).split("").map((letter, index) => (
           <Letter
             current={index === 0}
             ref={index === 0 ? ref : undefined}

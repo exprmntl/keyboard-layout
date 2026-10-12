@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { JSX } from "react";
 
 export enum TextPosition {
   LEFT,
@@ -11,7 +11,7 @@ type SpecialKeyProps = {
   position?: TextPosition;
   highlight?: boolean;
   hint?: boolean;
-  width?: string;
+  size?: "wide" | "extraWide" | "shift" | "command" | "space";
 };
 
 const SpecialKey = ({
@@ -20,29 +20,25 @@ const SpecialKey = ({
   position,
   highlight,
   hint,
-  width,
+  size,
 }: SpecialKeyProps) => {
   return (
     <div
-      className={`shrink-0 grow-0 rounded-md p-2 h-16 ${
-        width ? width : "w-16"
-      } ${
-        highlight
-          ? "bg-slate-600 dark:bg-gray-500 text-white dark:text-black border-0"
-          : hint
-          ? "bg-yellow-500 dark:bg-yellow-600 dark:text-black dark:border-0"
-          : "border-2 border-black dark:border-gray-500"
-      }`}
+      className={`keyboard-special-key keyboard-special-key--${
+        size || "standard"
+      } ${Icon ? "keyboard-special-key--has-icon" : ""} keycap shrink-0 grow-0`}
+      data-highlight={highlight}
+      data-hint={hint}
     >
       <div
-        className={`h-1/2 flex items-start text-[0.8rem]  ${
+        className={`keyboard-special-key-icon h-1/2 flex items-start ${
           position === TextPosition.RIGHT ? "" : "justify-end"
         }`}
       >
         {Icon ? <Icon /> : ""}
       </div>
       <div
-        className={`h-1/2 flex items-end text-[0.8rem]  ${
+        className={`keyboard-special-key-label h-1/2 flex items-end ${
           position === TextPosition.RIGHT ? "justify-end" : ""
         }`}
       >
