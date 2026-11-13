@@ -305,7 +305,6 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             <a
               href="https://experimental.software/"
               target="_blank"
-              className="underline"
             >
               Experimental Software
             </a>

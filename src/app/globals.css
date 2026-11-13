@@ -82,10 +82,13 @@ main.tester-main { --practice-section-gap: 2rem; max-width: 60rem; padding-top: 
 .dvorak-guide-invitation { display: flex; align-items: center; gap: 1rem; }
 .dvorak-guide h2 { font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; }
 .dvorak-guide p { color: var(--muted); font-size: .875rem; line-height: 1.6; }
-.dvorak-guide--inline .dvorak-guide-invitation { flex-wrap: wrap; column-gap: .8rem; row-gap: .25rem; }
+.dvorak-guide--inline .dvorak-guide-invitation { flex-wrap: wrap; column-gap: .75rem; row-gap: .125rem; }
 .dvorak-guide--inline .dvorak-guide-copy { display: contents; }
-.dvorak-guide--inline .dvorak-guide-copy p { order: 3; flex-basis: 100%; }
-.guide-text-link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: .875rem; text-decoration: underline; text-underline-offset: .25rem; }
+.dvorak-guide--inline h2 { font-size: 1rem; line-height: 1.5rem; }
+.dvorak-guide--inline .dvorak-guide-copy p { order: 3; flex-basis: 100%; font-size: .75rem; line-height: 1.125rem; }
+/* Keep a 44px target without making the first text row taller. Inline text
+   gives the label, space and arrow a single continuous underline. */
+.guide-text-link { display: inline-block; min-height: 2.75rem; padding-block: .8125rem; margin-block: -.8125rem; color: var(--accent); font-size: .75rem; line-height: 1.125rem; white-space: nowrap; text-decoration: underline; }
 .guide-text-link:hover { color: var(--ink); }
 .dvorak-guide--card { padding: 1.5rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); }
 .dvorak-guide--card .dvorak-guide-invitation { flex-wrap: wrap; }
