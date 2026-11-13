@@ -13,10 +13,11 @@
     "icons": "node scripts/generate-icons.mjs",
     "test:analytics": "node --experimental-strip-types --test tests/analytics.test.mjs",
     "test:typing": "node --experimental-strip-types --test tests/typing.test.mjs",
+    "test:guide": "node --experimental-strip-types --test tests/guide-signup.test.mjs",
     "test:detector": "node --experimental-strip-types --test tests/layout-detection.test.mjs"
   },
   "dependencies": {
-    "next": "16.4.0",
+    "next": "16.4.6",
     "posthog-js": "1.433.7",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -27,7 +28,7 @@
     "@types/react-dom": "19.3.0",
     "autoprefixer": "^10.0.1",
     "eslint": "9.39.5",
-    "eslint-config-next": "16.4.0",
+    "eslint-config-next": "16.4.6",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

@@ -4,8 +4,8 @@ import { cleanAnalyticsUrl, getAnalyticsContext } from "./analytics-policy";
 import { isProductionHost } from "./site";
 import { layoutForPathname, layouts } from "./layouts";
 import { articles, guidesIndex } from "@/content/catalog";
+import { POSTHOG_HOST, POSTHOG_KEY } from "./analytics-config";
 
-const POSTHOG_KEY = "phc_gZCfyVO7HQTKkDH5G4UH15ejDCJlCHDgbf1XSbZbWGw";
 const GA_ID = "G-3XWS80C1HX";
 let client: Parameters<PostHogConfig["loaded"]>[0] | undefined;
 let initialized = false;
@@ -57,7 +57,7 @@ export function initializeAnalytics() {
   // Load after hydration. Early product actions queue until the SDK is ready.
   void import("posthog-js").then(({ default: posthog }) => {
     posthog.init(POSTHOG_KEY, {
-      api_host: "https://us.i.posthog.com",
+      api_host: POSTHOG_HOST,
       ui_host: "https://us.posthog.com",
       person_profiles: "identified_only",
       autocapture: false,
@@ -137,3 +137,12 @@ export const track: TrackEvent = (event, properties) => {
     // An unavailable SDK or storage must never interrupt a product action.
   }
 };
+
+export function getAnalyticsRequestContext() {
+  initializeAnalytics();
+  return {
+    is_internal: browserContext().is_internal,
+    distinct_id: client?.get_distinct_id(),
+    session_id: client?.get_session_id(),
+  };
+}

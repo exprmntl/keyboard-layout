@@ -10,6 +10,9 @@ export type PracticeProperties = {
 };
 
 export type AnalyticsEvents = {
+  guide_offer_viewed: { layout: "dvorak"; guide_id: "dvorak-practice-plan"; placement: "below_keyboard" };
+  guide_form_opened: { layout: "dvorak"; guide_id: "dvorak-practice-plan"; placement: "below_keyboard" };
+  guide_downloaded: { layout: "dvorak"; guide_id: "dvorak-practice-plan"; placement: "below_keyboard" };
   layout_detection_started: { method: "guided_keys" };
   layout_detection_completed: { method: "guided_keys"; result: DetectionResultId | "unknown"; match_level?: "variant" | "family" | "unknown" };
   layout_selected: { layout: LayoutName; previous_layout: LayoutName };

@@ -6,7 +6,6 @@ import Link from "next/link";
 import Keyboard from "@/components/Keyboard";
 import TouchKeyboard from "@/components/TouchKeyboard";
 import KeyboardOption from "@/components/KeyboardOption";
-import KeyboardRecommendations from "@/components/KeyboardRecommendations";
 import TypeTest from "@/components/TypeTest";
 import qwertyKeyMap from "@/keyboards/qwertyKeyMap";
 import dvorakKeyMap from "@/keyboards/dvorakKeyMap";
@@ -14,6 +13,7 @@ import colemakKeyMap from "@/keyboards/colemakKeyMap";
 import { words } from "@/words";
 import LightBulb from "@/components/Icons/LightBulb";
 import ThemeToggle from "@/components/ThemeToggle";
+import DvorakGuideOffer from "@/components/DvorakGuideOffer";
 import { track } from "@/lib/analytics";
 import { layouts, layoutForPathname, type LayoutName } from "@/lib/layouts";
 import { createPracticeId, createPracticeTracker, isPracticeInput } from "@/lib/practice-analytics";
@@ -202,14 +202,14 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
       <main ref={mainRef} className="tester-main w-full min-h-[100svh] max-w-6xl mx-auto px-4 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8 md:px-12 md:pt-10 md:pb-12 flex flex-col">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="site-brand"><span className="brand-key" aria-hidden="true">k.</span>Keyboard Layout</Link>
-          <div className="site-nav-actions"><Link href="/learn">Guides</Link><ThemeToggle /></div>
+          <div className="site-nav-actions"><ThemeToggle /></div>
         </nav>
         <header className="tester-header">
           <p className="tester-eyebrow">{selectedLayout.heading}</p>
           <h1>{keyboardLayout === "qwerty" ? "Try a different way to type" : `Get a feel for ${selectedLayout.name}`}<span className="accent-period">.</span></h1>
           <p id="typing-instructions">
             <span className="physical-typing-instructions">{selectedLayout.introduction}</span>
-            <span className="touch-typing-instructions">Tap the keys below to try {selectedLayout.name}.</span>
+            <span className="touch-typing-instructions">Tap the keys below for {selectedLayout.name} typing practice.</span>
           </p>
         </header>
         <div
@@ -230,7 +230,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             }
           }}
         >
-          <div className="tester-controls mb-5 flex items-start gap-3 sm:gap-6 md:gap-8">
+          <div className="tester-controls flex items-start gap-3 sm:gap-6 md:gap-8">
             <nav aria-label="Keyboard layouts" className="flex min-w-0 flex-1 gap-2 sm:gap-4">
               {(Object.keys(layouts) as LayoutName[]).map((name) => (
                 <KeyboardOption
@@ -263,8 +263,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             </div>
           </div>
 
-          <div className="practice-label"><span>Typing practice</span><span className="physical-typing-instructions">Click here & start typing</span></div>
-          <div className="practice-text mb-4 ph-no-capture" data-private-typing>
+          <div className="practice-text ph-no-capture" data-private-typing>
             <TypeTest
               finishedText={typeTestState.finishedText}
               correctText={correctText}
@@ -296,34 +295,20 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
 
-        {keyboardLayout === "dvorak" && (
-          <nav aria-label="Dvorak resources" className="mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
-            <Link href="/learn/dvorak" className="underline underline-offset-4">Learn Dvorak</Link>
-            <Link href="/learn/keyboard-layout-charts#dvorak" className="underline underline-offset-4">Dvorak layout chart</Link>
-          </nav>
-        )}
-
-        <KeyboardRecommendations layout={keyboardLayout} />
+        {keyboardLayout === "dvorak" && <DvorakGuideOffer />}
 
         {children}
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
-          <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <nav aria-label="Layout resources" className="flex flex-wrap gap-x-6 gap-y-2 text-left">
-              <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you?</Link>
-              <Link href="/keyboard-layout-detector" className="underline underline-offset-4">Detect your keyboard layout</Link>
-            </nav>
-            <p>
-              A product by{" "}
-              <a
-                href="https://experimental.software/"
-                target="_blank"
-                className="underline"
-              >
-                Experimental Software
-              </a>
-            </p>
-          </div>
+          <p>
+            A product by{" "}
+            <a
+              href="https://experimental.software/"
+              target="_blank"
+            >
+              Experimental Software
+            </a>
+          </p>
         </div>
       </main>
     </div>
