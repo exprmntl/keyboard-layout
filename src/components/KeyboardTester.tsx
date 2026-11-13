@@ -229,7 +229,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             }
           }}
         >
-          <div className="tester-controls mb-5 flex items-start gap-3 sm:gap-6 md:gap-8">
+          <div className="tester-controls flex items-start gap-3 sm:gap-6 md:gap-8">
             <nav aria-label="Keyboard layouts" className="flex min-w-0 flex-1 gap-2 sm:gap-4">
               {(Object.keys(layouts) as LayoutName[]).map((name) => (
                 <KeyboardOption
@@ -262,7 +262,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             </div>
           </div>
 
-          <div className="practice-text mb-4 ph-no-capture" data-private-typing>
+          <div className="practice-text ph-no-capture" data-private-typing>
             <TypeTest
               finishedText={typeTestState.finishedText}
               correctText={correctText}
