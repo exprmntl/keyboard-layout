@@ -6,7 +6,6 @@ import Link from "next/link";
 import Keyboard from "@/components/Keyboard";
 import TouchKeyboard from "@/components/TouchKeyboard";
 import KeyboardOption from "@/components/KeyboardOption";
-import KeyboardRecommendations from "@/components/KeyboardRecommendations";
 import TypeTest from "@/components/TypeTest";
 import qwertyKeyMap from "@/keyboards/qwertyKeyMap";
 import dvorakKeyMap from "@/keyboards/dvorakKeyMap";
@@ -209,7 +208,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           <h1>{keyboardLayout === "qwerty" ? "Try a different way to type" : `Get a feel for ${selectedLayout.name}`}<span className="accent-period">.</span></h1>
           <p id="typing-instructions">
             <span className="physical-typing-instructions">{selectedLayout.introduction}</span>
-            <span className="touch-typing-instructions">Tap the keys below to try {selectedLayout.name}.</span>
+            <span className="touch-typing-instructions">Tap the keys below for {selectedLayout.name} typing practice.</span>
           </p>
         </header>
         <div
@@ -263,7 +262,6 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
             </div>
           </div>
 
-          <div className="practice-label"><span>Typing practice</span><span className="physical-typing-instructions">Click here & start typing</span></div>
           <div className="practice-text mb-4 ph-no-capture" data-private-typing>
             <TypeTest
               finishedText={typeTestState.finishedText}
@@ -303,27 +301,19 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           </nav>
         )}
 
-        <KeyboardRecommendations layout={keyboardLayout} />
-
         {children}
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">
-          <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <nav aria-label="Layout resources" className="flex flex-wrap gap-x-6 gap-y-2 text-left">
-              <Link href="/compare/qwerty-dvorak-colemak" className="underline underline-offset-4">Which layout is right for you?</Link>
-              <Link href="/keyboard-layout-detector" className="underline underline-offset-4">Detect your keyboard layout</Link>
-            </nav>
-            <p>
-              A product by{" "}
-              <a
-                href="https://experimental.software/"
-                target="_blank"
-                className="underline"
-              >
-                Experimental Software
-              </a>
-            </p>
-          </div>
+          <p>
+            A product by{" "}
+            <a
+              href="https://experimental.software/"
+              target="_blank"
+              className="underline"
+            >
+              Experimental Software
+            </a>
+          </p>
         </div>
       </main>
     </div>

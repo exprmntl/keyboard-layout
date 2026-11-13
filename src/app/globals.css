@@ -42,7 +42,7 @@ body {
 ::selection { background: var(--accent-soft); color: var(--ink); }
 a, button { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-.site-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: .8rem; }
+.site-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; font-size: .8rem; }
 .site-brand { display: inline-flex; align-items: center; gap: .7rem; font-weight: 600; letter-spacing: -.025em; }
 .brand-key { display: grid; place-items: center; width: 2rem; height: 2rem; background: var(--ink); color: var(--page); border-radius: .45rem; font-size: 1.1rem; box-shadow: 0 3px 0 var(--key-edge); }
 .site-nav-actions { display: flex; align-items: center; gap: 1.75rem; }
@@ -68,8 +68,6 @@ main.tester-main { max-width: 60rem; padding-top: 1.5rem; }
 .hint-toggle { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; min-width: 3rem; min-height: 3rem; padding: .5rem; color: var(--muted); border-radius: .5rem; font-size: .65rem; }
 .hint-toggle[aria-pressed="true"] { color: var(--accent); background: var(--accent-soft); }
 .hint-icon { width: 1.3rem; height: 1.3rem; }
-.practice-label { display: flex; justify-content: space-between; gap: .5rem; margin: 0 0 .75rem; color: var(--muted); font-size: .65rem; }
-.practice-label > span:first-child { font-weight: 600; text-transform: uppercase; letter-spacing: .12em; }
 .practice-text { padding-bottom: .25rem; }
 .typing-remaining { color: var(--muted); }
 .typing-letter { border-left: 2px solid transparent; }
@@ -384,7 +382,6 @@ main.tester-main { max-width: 60rem; padding-top: 1.5rem; }
   .layout-option-name { font-size: .75rem; }
   .layout-option[aria-current="page"] .layout-option-name::after { display: none; }
   .tester-footer { line-height: 1.8; }
-  .tester-footer > div { flex-direction: column; align-items: flex-start; }
 }
 
 @container (max-width: 30rem) {

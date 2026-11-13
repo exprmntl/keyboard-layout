@@ -10,10 +10,10 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 | `practice_started` | First accepted character or space in a practice run | `layout`, `practice_id`, `active_seconds`, `character_count` |
 | `practice_engaged` | Once after 30 cumulative seconds of active typing in that run | Same aggregate practice properties |
 | `hints_toggled` | Hints are switched on or off | `layout`, `enabled` |
-| `recommendations_opened` | The recommendations are expanded | `layout`, `placement` |
-| `affiliate_link_clicked` | A product link is activated, including middle click | `layout`, `product_id`, `merchant`, `placement` |
+| `recommendations_opened` | Historical: the recommendations were expanded | `layout`, `placement` |
+| `affiliate_link_clicked` | Historical: a product link was activated, including middle click | `layout`, `product_id`, `merchant`, `placement` |
 
-All events carry `analytics_site: keyboard-layout-tester`, `analytics_version: 1`, and `is_internal`. The SDK supplies session, device, referrer and campaign context. Product IDs remain stable if copy changes. Affiliate clicks measure outbound interest; only the merchant can confirm orders and commission.
+All events carry `analytics_site: keyboard-layout-tester`, `analytics_version: 1`, and `is_internal`. The SDK supplies session, device, referrer and campaign context. Keyboard recommendations have been removed, so the recommendation and affiliate events are no longer emitted. Historical affiliate clicks measure outbound interest; only the merchant can confirm orders and commission.
 
 The layout detector keeps the latest character per physical key and Shift layer only in component memory and blocks the entire check area from session replay. Six initial positions identify a layout family, followed by distinguishing positions when needed for a supported variant. Input can arrive in any order; extra keys fill the diagram and can help distinguish variants. Held-key repeats do not advance progress. Clicking a diagram key selects a position without recording a sample. Completion is emitted at most once per run, including when a visitor finishes with the family only. Its events contain only the method, result ID and match level, never raw keys, characters, or sample arrays. Owner/QA exclusions use the existing persistent internal marker and preview-host policy. Production reporting must filter `is_internal != true`; production delivery will need verification after release.
 
@@ -39,7 +39,7 @@ Run `npm run test:analytics` with Node 22.6+ for tracker, input, privacy-marker 
 
 ## Reporting and domain changes
 
-Keep separate session funnels for pageview → practice started → practice engaged and pageview → recommendations opened → affiliate clicked. Break down practice by layout and clicks by product. Use unique visitors/sessions alongside totals to avoid treating repeat interactions as additional people. Returning-user reports use anonymous browser identity, so clearing storage or switching devices affects retention.
+Use the session funnel pageview → practice started → practice engaged, broken down by layout. Historical recommendation reporting uses a separate pageview → recommendations opened → affiliate clicked funnel, with clicks broken down by product. Use unique visitors/sessions alongside totals to avoid treating repeat interactions as additional people. Returning-user reports use anonymous browser identity, so clearing storage or switching devices affects retention.
 
 New event metrics begin with this release; earlier pageviews cannot reconstruct practice or affiliate events. Compare small samples descriptively. Merchant commissions and payments remain separate from PostHog metrics.
 
@@ -47,6 +47,6 @@ The canonical production URL is `https://keyboardlayout.app/`. Metadata, sitemap
 
 ## Shareable layout routes
 
-`/`, `/dvorak`, and `/colemak` select QWERTY, Dvorak, and Colemak respectively. The shared tester layout preserves practice text, hints, and recommendations across client-side navigation. PostHog captures one pageview per URL transition, including Back/Forward navigation, with the route and initial layout. Route changes emit `layout_selected`; a direct load does not imply a user selection. The first practice event uses the selected route's layout. Duplicate effect calls do not double-count a pageview, and queued pageviews retain the URL they originally described. Localhost and preview hosts remain excluded from ingestion. GA retains its existing property and history-change measurement configuration.
+`/`, `/dvorak`, and `/colemak` select QWERTY, Dvorak, and Colemak respectively. The shared tester layout preserves practice text and hints across client-side navigation. PostHog captures one pageview per URL transition, including Back/Forward navigation, with the route and initial layout. Route changes emit `layout_selected`; a direct load does not imply a user selection. The first practice event uses the selected route's layout. Duplicate effect calls do not double-count a pageview, and queued pageviews retain the URL they originally described. Localhost and preview hosts remain excluded from ingestion. GA retains its existing property and history-change measurement configuration.
 
 Content pages use their article titles in pageviews and set `page_type=article`; `/learn` uses `page_type=guides`. Simulator routes use `page_type=simulator` and include the selected `layout`. Reading a guide does not imply a QWERTY selection and does not emit practice events. The article bodies are rendered on the server and are not imported into the analytics client.
