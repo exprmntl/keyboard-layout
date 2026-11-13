@@ -297,13 +297,6 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
 
         {keyboardLayout === "dvorak" && <DvorakGuideOffer />}
 
-        {keyboardLayout === "dvorak" && (
-          <nav aria-label="Dvorak resources" className="mt-5 mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
-            <Link href="/learn/dvorak" className="underline underline-offset-4">Learn Dvorak</Link>
-            <Link href="/learn/keyboard-layout-charts#dvorak" className="underline underline-offset-4">Dvorak layout chart</Link>
-          </nav>
-        )}
-
         {children}
 
         <div className="tester-footer mt-8 text-sm text-right grow flex flex-col justify-end">

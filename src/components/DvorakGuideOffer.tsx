@@ -6,7 +6,7 @@ import { DVORAK_GUIDE, GUIDE_PLACEMENT } from "@/lib/dvorak-guide";
 
 const properties = { layout: "dvorak", guide_id: DVORAK_GUIDE.id, placement: GUIDE_PLACEMENT } as const;
 
-export default function DvorakGuideOffer() {
+export default function DvorakGuideOffer({ variant = "inline" }: { variant?: "inline" | "card" }) {
   const offerRef = useRef<HTMLDivElement>(null);
   const viewed = useRef(false);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -85,14 +85,15 @@ export default function DvorakGuideOffer() {
   const complete = status === "success" || status === "test";
 
   return (
-    <section className="dvorak-guide" aria-labelledby="dvorak-guide-title">
+    <section className={`dvorak-guide dvorak-guide--${variant}`} aria-labelledby="dvorak-guide-title">
       <div className="dvorak-guide-invitation" ref={offerRef}>
-        <div>
+        {variant === "card" && <div className="guide-sheet-icon" aria-hidden="true"><span>U</span><span>H</span></div>}
+        <div className="dvorak-guide-copy">
           <h2 id="dvorak-guide-title">Learning Dvorak?</h2>
-          <p>Get a free one-page practice plan.</p>
+          <p>A free one-page plan for your first 10 minutes.</p>
         </div>
         {!complete && (
-          <button type="button" className="guide-button" aria-expanded={expanded} aria-controls="dvorak-guide-form" onClick={() => {
+          <button type="button" className={variant === "inline" ? "guide-text-link" : "guide-button"} aria-expanded={expanded} aria-controls="dvorak-guide-form" onClick={() => {
             if (!expanded) {
               recordView();
               track("guide_form_opened", properties);
@@ -109,14 +110,14 @@ export default function DvorakGuideOffer() {
             </div>
           ) : (
             <form onSubmit={submit} className="ph-no-capture" data-private-typing>
-              <p className="dvorak-guide-description">A home-row reference, a 10-minute routine, and a gradual plan for switching from QWERTY.</p>
+              <p className="dvorak-guide-description">A keyboard reference, exact home-row drills, and a simple plan for what to learn next.</p>
               <label htmlFor="dvorak-guide-email">Email address</label>
               <div className="dvorak-guide-fields">
                 <input ref={emailRef} id="dvorak-guide-email" name="email" type="email" autoComplete="email" inputMode="email" required maxLength={254} placeholder="you@example.com" aria-describedby="dvorak-guide-note" disabled={status === "sending"} />
                 <button className="guide-button" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Send me the guide"}</button>
               </div>
               <div className="guide-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-              <p id="dvorak-guide-note" className="dvorak-guide-note">We’ll email you the PDF and unlock the download here. No mailing list.</p>
+              <p id="dvorak-guide-note" className="dvorak-guide-note">We’ll email you the PDF and unlock the download here.</p>
               {error && <p className="dvorak-guide-error" role="alert">{error}</p>}
             </form>
           ))}

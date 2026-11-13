@@ -79,9 +79,19 @@ main.tester-main { --practice-section-gap: 2rem; max-width: 60rem; padding-top: 
 .tester-footer a:hover { color: var(--accent); }
 
 .dvorak-guide { width: 100%; }
-.dvorak-guide-invitation { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
+.dvorak-guide-invitation { display: flex; align-items: center; gap: 1rem; }
 .dvorak-guide h2 { font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; }
 .dvorak-guide p { color: var(--muted); font-size: .875rem; line-height: 1.6; }
+.dvorak-guide--inline .dvorak-guide-invitation { flex-wrap: wrap; column-gap: .8rem; row-gap: .25rem; }
+.dvorak-guide--inline .dvorak-guide-copy { display: contents; }
+.dvorak-guide--inline .dvorak-guide-copy p { order: 3; flex-basis: 100%; }
+.guide-text-link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: .875rem; text-decoration: underline; text-underline-offset: .25rem; }
+.guide-text-link:hover { color: var(--ink); }
+.dvorak-guide--card { padding: 1.5rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); }
+.dvorak-guide--card .dvorak-guide-invitation { flex-wrap: wrap; }
+.dvorak-guide--card .guide-button { margin-left: .5rem; }
+.guide-sheet-icon { display: flex; gap: .3rem; padding: .65rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--page); }
+.guide-sheet-icon span { display: grid; place-items: center; width: 1.65rem; height: 1.9rem; border: 1px solid var(--key-edge); border-bottom-width: 3px; border-radius: .3rem; background: var(--key); color: var(--accent); font-size: .8rem; font-weight: 600; }
 .guide-button { display: inline-flex; align-items: center; justify-content: center; gap: .8rem; min-height: 2.75rem; padding: .65rem 1rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--surface); color: var(--accent); font-size: .8rem; font-weight: 600; white-space: nowrap; }
 .guide-button:hover { border-color: var(--accent); }
 .guide-button:disabled { opacity: .6; cursor: wait; }
@@ -401,7 +411,10 @@ main.tester-main { --practice-section-gap: 2rem; max-width: 60rem; padding-top: 
   .layout-option[aria-current="page"] .layout-option-name::after { display: none; }
   .tester-footer { line-height: 1.8; }
   .dvorak-guide { margin-top: .5rem; }
-  .dvorak-guide-invitation { align-items: flex-start; flex-direction: column; gap: .75rem; }
+  .dvorak-guide--card { padding: 1.25rem; }
+  .dvorak-guide--card .dvorak-guide-invitation { align-items: flex-start; gap: .75rem; }
+  .dvorak-guide--card .guide-sheet-icon { display: none; }
+  .dvorak-guide--card .guide-button { margin-left: 0; }
   .dvorak-guide-fields { flex-direction: column; }
 }
 

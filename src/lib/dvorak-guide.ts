@@ -1,6 +1,6 @@
 export const DVORAK_GUIDE = {
   id: "dvorak-practice-plan",
-  version: 1,
+  version: 2,
   downloadPath: "/downloads/dvorak-practice-plan.pdf",
 } as const;
 
