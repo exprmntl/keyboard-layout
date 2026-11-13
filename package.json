@@ -13,6 +13,7 @@
     "icons": "node scripts/generate-icons.mjs",
     "test:analytics": "node --experimental-strip-types --test tests/analytics.test.mjs",
     "test:typing": "node --experimental-strip-types --test tests/typing.test.mjs",
+    "test:guide": "node --experimental-strip-types --test tests/guide-signup.test.mjs",
     "test:detector": "node --experimental-strip-types --test tests/layout-detection.test.mjs"
   },
   "dependencies": {

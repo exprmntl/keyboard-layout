@@ -4,6 +4,10 @@ PostHog collects pageviews and explicit product events. Google Analytics keeps t
 
 | Event | Trigger | Properties |
 | --- | --- | --- |
+| `guide_offer_viewed` | At least half of the Dvorak offer is visible for one second while the page is visible; interacting also confirms a view | `layout: dvorak`, `guide_id: dvorak-practice-plan`, `placement: below_keyboard` |
+| `guide_form_opened` | Visitor expands the inline email form | Same guide properties |
+| `guide_signup_completed` | Server receives Resend acceptance of the guide email | Same guide properties, `guide_version`, browser/session identity where available |
+| `guide_downloaded` | Visitor activates the unlocked PDF download | Same guide properties; measures intent, not file completion |
 | `layout_detection_started` | First accepted key in a guided check | `method: guided_keys` |
 | `layout_detection_completed` | Guided check completes, or visitor chooses family-only completion | `method`, `result` (layout/family ID or `unknown`), `match_level` (`variant`, `family`, `unknown`) |
 | `layout_selected` | A different layout is selected | `layout`, `previous_layout` |
@@ -50,3 +54,15 @@ The canonical production URL is `https://keyboardlayout.app/`. Metadata, sitemap
 `/`, `/dvorak`, and `/colemak` select QWERTY, Dvorak, and Colemak respectively. The shared tester layout preserves practice text and hints across client-side navigation. PostHog captures one pageview per URL transition, including Back/Forward navigation, with the route and initial layout. Route changes emit `layout_selected`; a direct load does not imply a user selection. The first practice event uses the selected route's layout. Duplicate effect calls do not double-count a pageview, and queued pageviews retain the URL they originally described. Localhost and preview hosts remain excluded from ingestion. GA retains its existing property and history-change measurement configuration.
 
 Content pages use their article titles in pageviews and set `page_type=article`; `/learn` uses `page_type=guides`. Simulator routes use `page_type=simulator` and include the selected `layout`. Reading a guide does not imply a QWERTY selection and does not emit practice events. The article bodies are rendered on the server and are not imported into the analytics client.
+
+## Dvorak guide experiment
+
+The permanent offer is shown below the keyboard only when Dvorak is selected. It never opens itself or takes focus until the visitor expands it. Offer visibility accounts for the fixed mobile keyboard. The email form is blocked from session recording, and the mobile keyboard hides while the form has focus so it does not cover the native email keyboard.
+
+Use unique visitors with `guide_signup_completed` divided by unique visitors with `guide_offer_viewed`, matching `guide_id` and excluding `is_internal = true` and detected automation. Keep Dvorak `practice_engaged` as a separate segment; 30 active seconds is not an eligibility requirement. Start evaluation after roughly 100 actual viewers. Below 5% is a weak signal for this offer, not a definitive test of willingness to pay. Email submission is not a purchase.
+
+The signup event is emitted only on the server after Resend accepts the email; it does not prove inbox delivery. Its UUID is the Resend email ID, so provider-idempotent repeats do not create new conversions. The browser's PostHog identity/session is carried to the server. If browser analytics is blocked or not ready, the email request still works with an opaque hash-based lead identity, but those leads cannot reliably join to a recorded view. Reconcile discrepancies with Resend sends tagged `product=keyboard-layout` and `guide=dvorak-practice-plan`.
+
+Email addresses are sent to Resend to deliver the requested PDF and saved only as PostHog person properties on confirmed signups. They are not placed in URLs, browser storage, client debug events, or server logs. `dvorak_guide_marketing_consent=false` records that this request does not enroll someone in marketing. A mailing list or lesson announcement needs a separate opt-in. See the [PostHog capture API](https://posthog.com/docs/api/capture) for the server event format.
+
+Localhost, deployment previews, marked owner browsers, verified addresses in `INTERNAL_ANALYTICS_EMAILS`, and detected automation return an explicit test result with the PDF link. They send no email, save no lead, and never emit the server conversion. The browser's persistent internal marker is carried to the server; no IP-only exclusion is used. Existing client internal events remain marked and must be filtered from reports. Production delivery and owner-device exclusions need a labeled check after an authorized release; new browsers/devices remain unverified until marked.

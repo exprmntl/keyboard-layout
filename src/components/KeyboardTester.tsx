@@ -13,6 +13,7 @@ import colemakKeyMap from "@/keyboards/colemakKeyMap";
 import { words } from "@/words";
 import LightBulb from "@/components/Icons/LightBulb";
 import ThemeToggle from "@/components/ThemeToggle";
+import DvorakGuideOffer from "@/components/DvorakGuideOffer";
 import { track } from "@/lib/analytics";
 import { layouts, layoutForPathname, type LayoutName } from "@/lib/layouts";
 import { createPracticeId, createPracticeTracker, isPracticeInput } from "@/lib/practice-analytics";
@@ -201,7 +202,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
       <main ref={mainRef} className="tester-main w-full min-h-[100svh] max-w-6xl mx-auto px-4 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8 md:px-12 md:pt-10 md:pb-12 flex flex-col">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="site-brand"><span className="brand-key" aria-hidden="true">k.</span>Keyboard Layout</Link>
-          <div className="site-nav-actions"><Link href="/learn">Guides</Link><ThemeToggle /></div>
+          <div className="site-nav-actions"><ThemeToggle /></div>
         </nav>
         <header className="tester-header">
           <p className="tester-eyebrow">{selectedLayout.heading}</p>
@@ -294,8 +295,10 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
 
+        {keyboardLayout === "dvorak" && <DvorakGuideOffer />}
+
         {keyboardLayout === "dvorak" && (
-          <nav aria-label="Dvorak resources" className="mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
+          <nav aria-label="Dvorak resources" className="mt-5 mb-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--muted)]">
             <Link href="/learn/dvorak" className="underline underline-offset-4">Learn Dvorak</Link>
             <Link href="/learn/keyboard-layout-charts#dvorak" className="underline underline-offset-4">Dvorak layout chart</Link>
           </nav>
