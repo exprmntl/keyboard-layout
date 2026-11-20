@@ -1,6 +1,7 @@
 export type Source = { title: string; url: string; note: string };
 
 export const sources = {
+  frenchStandard: { title: "Microsoft: French (Standard, AZERTY) keyboard", url: "https://learn.microsoft.com/en-us/globalization/keyboards/kbdfrna", note: "Windows standard French layout, with @ and # on the key to the left of 1." },
   regionalMappings: { title: "Microsoft VS Code: keyboard layout mappings", url: "https://github.com/microsoft/vscode/tree/a37ac69a11d0e4f533ff766ba4876864c91d3a2e/src/vs/workbench/services/keybinding/browser/keyboardLayouts", note: "Windows Spanish, Latin American, Portuguese and Brazilian mappings, plus macOS British and Spanish ISO references." },
   brazilLayout: { title: "Keyboard Layout Info: Portuguese (Brazil ABNT / ABNT2)", url: "https://kbdlayout.info/kbdbr", note: "Character positions and layout identifiers extracted from Windows KBDBR.DLL; ABNT and ABNT2 share the main character mapping." },
   dhMappings: { title: "Colemak Mod-DH: ANSI, ISO and matrix mappings", url: "https://github.com/ColemakMods/mod-dh/tree/d9398d57695089658841f3dc62827ae814aef8c4/klc", note: "Official public-domain mapping files for the current DH arrangement." },

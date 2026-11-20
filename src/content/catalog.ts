@@ -72,6 +72,21 @@ export const articles = {
     description: "Download a free three-page PDF of US QWERTY, standard Dvorak and Colemak keyboard charts, with Shift symbols, number rows and home-row references.",
     category: "Printable reference", summary: "Download three clear desk references with character positions, Shift symbols and home-row finger anchors.",
   },
+  "how-to-type-at-sign": {
+    path: "/learn/how-to-type-at-sign", title: "How to type the at sign (@) on your keyboard",
+    description: "Find the @ key on German, French AZERTY, UK, US and Spanish keyboard layouts. Get the Windows or Mac shortcut for your active layout.",
+    category: "Symbol guide", summary: "On a German keyboard, use AltGr + Q in Windows or Option + L on a Mac. On a UK keyboard, the shortcut also depends on which system you use.",
+  },
+  "how-to-type-square-brackets": {
+    path: "/learn/how-to-type-square-brackets", title: "How to type square brackets [ ] on your keyboard",
+    description: "Find the opening and closing square bracket keys on German, Swiss German, French AZERTY, US and UK keyboards, with separate Windows and Mac shortcuts.",
+    category: "Symbol guide", summary: "For [ and ] on a German keyboard, hold AltGr and press 8 or 9 in Windows. On a German or Swiss German Mac, hold Option and press 5 or 6.",
+  },
+  "how-to-type-hash-sign": {
+    path: "/learn/how-to-type-hash-sign", title: "How to type the hash sign (#) on your keyboard",
+    description: "Find the # key on UK, US, German and French keyboards. See how to type a hash on a British Mac and what to press when Shift + 3 gives you £.",
+    category: "Symbol guide", summary: "On a UK Windows keyboard, press the # key beside Enter. On a Mac using British input, press Option + 3. US keyboards use Shift + 3.",
+  },
 } as const;
 
 export type ArticleId = keyof typeof articles;
