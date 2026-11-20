@@ -27,6 +27,15 @@ export const layouts = {
     title: "Colemak Keyboard Simulator — Free Online Typing Practice",
     description: "Try Colemak online with a free keyboard simulator. Learn the layout and practice typing with on-screen key hints, without changing your keyboard settings.",
   },
+  "colemak-dh": {
+    name: "Colemak-DH",
+    path: "/colemak-dh",
+    summary: "The Colemak variant that moves D and H to the bottom row.",
+    heading: "Colemak-DH Keyboard Simulator",
+    introduction: "Practice Colemak-DH on a US ANSI keyboard with the Angle Mod.",
+    title: "Colemak-DH Keyboard Simulator — Free Online Typing Practice",
+    description: "Try Colemak-DH on a US ANSI keyboard with the Angle Mod. Practice typing in your browser with an on-screen keyboard and optional key hints.",
+  },
 } as const;
 
 export type LayoutName = keyof typeof layouts;
@@ -34,5 +43,6 @@ export type LayoutName = keyof typeof layouts;
 export function layoutForPathname(pathname: string): LayoutName {
   if (pathname === "/dvorak") return "dvorak";
   if (pathname === "/colemak") return "colemak";
+  if (pathname === "/colemak-dh") return "colemak-dh";
   return "qwerty";
 }
