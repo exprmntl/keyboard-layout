@@ -61,6 +61,7 @@
 .guide-prose th, .guide-prose td { padding: .875rem; vertical-align: top; text-align: left; border-bottom: 1px solid var(--reading-border); }
 .guide-prose thead { background: var(--reading-soft); }
 .guide-prose th { font-weight: 600; }
+.guide-prose .compact-guide-table { min-width: 0; }
 .guide-prose .history-timeline { list-style: none; padding: 0; border-left: 1px solid var(--reading-border); margin: 1.75rem 0; }
 .history-timeline li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; margin: 0; padding: .75rem 0 .75rem 1.25rem; font-size: .95rem; }
 .guide-related { border-top: 1px solid var(--reading-border); margin: 3rem 0 2rem; padding-top: 2rem; }
@@ -88,6 +89,7 @@
 .reference-keyboard figcaption { margin-top: .8rem; color: var(--reading-muted); font-size: .75rem; line-height: 1.6; }
 .guide-download { display: inline-block; border: 1px solid var(--reading-border); border-radius: .5rem; padding: .85rem 1.1rem; background: var(--reading-soft); font-weight: 500; }
 @media (max-width: 480px) {
+  .compact-guide-table th, .compact-guide-table td { padding: .625rem .375rem; }
   .reading-shell { padding: 0 1.125rem; }
   .reading-nav { padding: 1rem 0; gap: .75rem; font-size: .75rem; flex-wrap: wrap; }
   .reading-nav nav { gap: .75rem; }

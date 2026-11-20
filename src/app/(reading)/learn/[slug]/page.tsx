@@ -12,9 +12,17 @@ import troubleshooting from "@/content/keyboard-typing-wrong-letters";
 import charts from "@/content/keyboard-layout-charts";
 import spanish from "@/content/spanish-vs-latin-american-keyboard";
 import portuguese from "@/content/portuguese-vs-brazilian-keyboard";
+import atSign from "@/content/how-to-type-at-sign";
+import squareBrackets from "@/content/how-to-type-square-brackets";
+import hashSign from "@/content/how-to-type-hash-sign";
 import { contentMetadata } from "@/lib/metadata";
 
-const guides = { dvorak, colemak, history, "french-keyboard-layout": french, "german-keyboard-layout": german, "us-vs-uk-keyboard": usUk, "us-international-keyboard": international, "keyboard-typing-wrong-letters": troubleshooting, "keyboard-layout-charts": charts, "spanish-vs-latin-american-keyboard": spanish, "portuguese-vs-brazilian-keyboard": portuguese };
+const guides = {
+  dvorak, colemak, history, "french-keyboard-layout": french, "german-keyboard-layout": german, "us-vs-uk-keyboard": usUk, "us-international-keyboard": international, "keyboard-typing-wrong-letters": troubleshooting, "keyboard-layout-charts": charts, "spanish-vs-latin-american-keyboard": spanish, "portuguese-vs-brazilian-keyboard": portuguese,
+  "how-to-type-at-sign": atSign,
+  "how-to-type-square-brackets": squareBrackets,
+  "how-to-type-hash-sign": hashSign,
+};
 type Slug = keyof typeof guides;
 const isSlug = (slug: string): slug is Slug => Object.prototype.hasOwnProperty.call(guides, slug);
 
