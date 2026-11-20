@@ -7,9 +7,7 @@ import Keyboard from "@/components/Keyboard";
 import TouchKeyboard from "@/components/TouchKeyboard";
 import KeyboardOption from "@/components/KeyboardOption";
 import TypeTest from "@/components/TypeTest";
-import qwertyKeyMap from "@/keyboards/qwertyKeyMap";
-import dvorakKeyMap from "@/keyboards/dvorakKeyMap";
-import colemakKeyMap from "@/keyboards/colemakKeyMap";
+import { layoutKeyMaps } from "@/keyboards/layoutKeyMaps";
 import { words } from "@/words";
 import LightBulb from "@/components/Icons/LightBulb";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -18,12 +16,6 @@ import { track } from "@/lib/analytics";
 import { layouts, layoutForPathname, type LayoutName } from "@/lib/layouts";
 import { createPracticeId, createPracticeTracker, isPracticeInput } from "@/lib/practice-analytics";
 import { applyTypingKey, type TypingKeyMap } from "@/lib/typing-state";
-
-const KeyMap = {
-  qwerty: qwertyKeyMap,
-  dvorak: dvorakKeyMap,
-  colemak: colemakKeyMap,
-};
 
 const KeyboardTester = ({ children }: { children: ReactNode }) => {
   const appRef = useRef<HTMLDivElement>(null);
@@ -46,7 +38,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
   // The shared route layout keeps typing state and hints mounted during navigation.
   const keyboardLayout = layoutForPathname(usePathname());
   const selectedLayout = layouts[keyboardLayout];
-  const keyMap: TypingKeyMap = KeyMap[keyboardLayout];
+  const keyMap: TypingKeyMap = layoutKeyMaps[keyboardLayout];
   const previousLayout = useRef(keyboardLayout);
   const practice = useRef<ReturnType<typeof createPracticeTracker> | null>(null);
   if (practice.current === null) {
@@ -231,7 +223,7 @@ const KeyboardTester = ({ children }: { children: ReactNode }) => {
           }}
         >
           <div className="tester-controls flex items-start gap-3 sm:gap-6 md:gap-8">
-            <nav aria-label="Keyboard layouts" className="flex min-w-0 flex-1 gap-2 sm:gap-4">
+            <nav aria-label="Keyboard layouts" className="grid grid-cols-2 min-[440px]:flex min-w-0 flex-1 gap-2 sm:gap-4">
               {(Object.keys(layouts) as LayoutName[]).map((name) => (
                 <KeyboardOption
                   key={name}

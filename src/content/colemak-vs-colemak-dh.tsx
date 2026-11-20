@@ -18,7 +18,7 @@ const content: ArticleContent = {
         ["D position", "QWERTY G position", "QWERTY C position on ANSI/ISO Angle Mod; V position on matrix"],
         ["H position", "QWERTY H position", "QWERTY M position"],
         ["Left bottom row", "Z X C V B", "Depends on ANSI, ISO or matrix geometry"],
-        ["This site’s typing simulator", "Supported", "Use a DH-specific tutor; the simulator remains standard Colemak"],
+        ["Try the layout", <Link key="standard" href="/colemak">Practice standard Colemak</Link>, <Link key="dh" href="/colemak-dh">Practice Colemak-DH (US ANSI)</Link>],
       ]} />
       <p>The first six letters already contain a difference: G becomes B. Checking the home and bottom rows confirms that you have a consistent mapping rather than relying on one character. The detector checks physical positions, so typing the text “colemak” is not enough to identify it.</p>
     </> },
@@ -45,7 +45,7 @@ const content: ArticleContent = {
       <p>The design rationale is not proof of a universal typing-speed or health benefit. Learning effort, shortcuts, your hardware and your own comfort all matter. Avoid repeated variant changes while you are establishing the new positions.</p>
     </> },
     { id: "setup", title: "Set up and practice the correct variant", body: <>
-      <p>For standard Colemak, follow the <Link href="/learn/colemak">Colemak learning and setup guide</Link>. The <Link href="/colemak">browser simulator</Link> lets you try standard Colemak without changing system settings; it does not emulate DH.</p>
+      <p>For standard Colemak, follow the <Link href="/learn/colemak">Colemak learning and setup guide</Link>. You can try both layouts in the browser before changing your system settings.</p>
       <p>For DH, start with the <a href="https://colemakmods.github.io/mod-dh/">official Colemak Mod-DH project</a>. Choose the Windows, macOS, Linux or firmware instructions that match your keyboard geometry. Installing a mapping and selecting it as the active input source are separate steps.</p>
       <ol>
         <li>Keep your previous layout available while learning.</li>
